@@ -1,0 +1,228 @@
+.banner .nav li {
+    @extend .nav-item;
+}
+
+.banner .nav a {
+    @extend .nav-link;
+}
+
+header{
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.62)),url('../images/header-background.jpg') center no-repeat;
+    background-size: cover;
+    //height:700px;
+    color:white;
+
+    div.header-content{
+        text-align:center;
+        padding-top:50px;
+
+        div.container{
+            & > a.button{
+                display:none;
+
+                @include min-1900{
+                    display:inline-block;
+                }
+            }
+
+            a.brand-logo{
+                img{
+                    width:90%;
+                    max-width:300px;
+
+                    @include min-600 {
+                        max-width:370px;
+                    }
+
+                    @include min-768 {
+                        max-width:370px;
+                    }
+
+                    @include min-1500 {
+                        max-width:450px;
+                    }
+                }
+            }
+
+            h2{
+                font-family: "Poppins", sans-serif;
+                font-weight: 700;
+                font-size: 18px;
+                line-height:1.5em;
+                margin:auto;
+                margin-top:50px;
+                margin-bottom:60px;
+                max-width:312px;
+
+                @include min-600 {
+                    font-size:24px;
+                    max-width:500px;
+                }
+
+                @include min-1900 {
+                    font-size:30px;
+                    max-width:600px;
+                    margin-bottom:20px;
+                }
+            }
+        }
+    }
+
+    div.shop-navigation{
+        background:rgba(0,0,0,0.62);
+        text-align:center;
+        padding-top:10px;
+        border-bottom:10px $main-color solid;
+
+        @include min-600 {
+            margin-top:100px;
+        }
+
+        @include min-768 {
+            margin-top:150px;
+        }
+
+        @include min-1500 {
+            margin-top:200px;
+            border-bottom: 14px $main-color solid;
+        }
+
+        @include min-1900 {
+            margin-top:300px;
+        }
+
+        div.container{
+            h2{
+                margin-bottom:15px;
+                font-size:18px;
+                margin-bottom:25px;
+
+                @include min-600 {
+                    margin-top:15px;
+                    margin-bottom:20px;
+                    font-size:20px;
+                }
+
+                @include min-1900 {
+                    font-size:25px;
+                }
+            }
+            div.categories{
+                display:flex;
+                max-width:300px;
+                margin:auto;
+
+                @include min-600 {
+                    max-width: 540px;
+                    margin-top: 30px;
+                }
+
+                & > a.button.transparent {
+                    display:block;
+                    border-radius:0;
+                    padding:17px 0;
+                    margin:auto;
+                    margin-top:0;
+                    width:90px;
+                    font-family: "Poppins", sans-serif;
+                    font-size:14px;
+                    font-weight: 400;
+
+                    &:first-of-type{
+                        border-radius: 5px 0 0 5px;
+                    }
+
+                    &:last-of-type{
+                        border-radius: 0 5px 5px 0;
+                    }
+
+                    @include min-335{
+                        border-radius: 5px !important;
+                    }
+
+                    @include min-600 {
+                        width:160px;
+                        padding:17px 20px;
+                        font-size:16px;
+                        display:flex;
+                        justify-content:center;
+                        align-items:center;
+                    }
+
+                    &:hover{
+                        background:$secondary-color;
+                        border: 1px $secondary-color solid;
+                    }
+
+                    svg{
+                        width:40px;
+                        height:20px;
+
+                        @include min-600 {
+                            width: 23px;
+                            height: 23px;
+                            margin-right:7px;
+                        }
+                    }
+                }
+            }
+
+            div.search{
+                margin:auto;
+                margin-top:20px;
+                margin-bottom:20px;
+                display:flex;
+                max-width:760px;
+                @include min-768 {
+                    margin-top:30px;
+                    margin-bottom:30px;
+                }
+
+                input {
+                    height:60px;
+                    border-radius: 5px 0px 0 5px;
+                    border:none;
+                    width:calc(100% - 60px);
+                    padding:10px 10px;
+                    font-family: "Poppins", sans-serif;
+                    font-size:16px;
+                    font-weight:600;
+
+                    @include min-768{
+                        padding:10px 20px;
+                        font-size:18px;
+                    }
+
+                    &::placeholder{
+                        color:#9F9F9F;
+                        font-style:italic;
+                        font-size:14px;
+                        font-weight:400;
+
+                        @include min-768{
+                            font-size:16px;
+                        }
+                    }
+
+                }
+
+                a.button {
+                    padding:0;
+                    display:flex;
+                    justify-content:center;
+                    align-items:center;
+                    width:60px;
+                    height:60px;
+                    border-radius: 0 5px 5px 0;
+                    box-sizing:border-box;
+                    box-shadow:none;
+
+                    svg{
+                        width:60px;
+                        height:25px;
+                    }
+                }
+            }
+        }
+    }
+}

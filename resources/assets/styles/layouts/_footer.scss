@@ -1,0 +1,129 @@
+footer.content-info{
+    background:$footer-background-color;
+    color:white;
+
+    div.main-footer-content{
+        padding: 50px 0;
+
+        div.container{
+            max-width:600px;
+            display:flex;
+            flex-direction:column;
+
+            @include min-1024{
+                flex-direction: row;
+                max-width: 1250px;
+                justify-content:space-between;
+            }
+
+            div.main-footer-content-logo{
+                div.image{
+                    max-width:400px;
+                    margin:auto;
+
+                    @include min-1024{
+                        max-width:none;
+                        width:250px;
+                    }
+
+                    @include min-1300{
+                        width:300px;
+                    }
+                }
+            }
+
+            div.main-footer-content-about{
+                p{
+                    margin-bottom:35px;
+
+                }
+                a.button{
+                    font-size:16px;
+                    padding: 17px 30px;
+                    color:black;
+                }
+
+                @include min-1024{
+                    flex-basis:500px;
+                    padding:0 30px;
+                }
+
+                @include min-1200{
+                    padding: 0;
+                }
+
+                @include min-1300{
+                    flex-basis:550px;
+                }
+            }
+
+            div.main-footer-content-contact{
+                h2{
+                    margin-bottom: 10px;
+                }
+
+                @include min-1024{
+                    flex-basis:300px;
+                }
+
+                .address, .phone-number, .email{
+                    display:flex;
+                    align-items: center;
+                    justify-content: flex-start;
+
+                    svg{
+                        margin-right:20px;
+                    }
+                }
+
+                &>div:not(:last-of-type){
+                    margin-bottom:20px;
+                }
+
+                .address svg{
+                    font-size:25px;
+                }
+
+                .phone-number svg{
+                    font-size:22px;
+                }
+
+                .email svg{
+                    font-size:22px;
+                }
+
+                .social-media{
+
+                    a{
+                        color:white;
+
+                        &:not(:last-of-type){
+                            margin-right:20px;
+                        }
+
+                        svg{
+                            font-size:35px;
+                        }
+                    }
+                    
+                }
+            }
+
+            &>div:not(:last-of-type){
+                margin-bottom:60px;
+
+                h2{
+                    font-size:20px;
+                    margin-bottom:20px;
+                }
+            }
+        }
+    }
+
+    div.footer-copyright{
+        padding: 10px 0;
+        background:black;
+        text-align:center;
+        font-size:14px;
+    }
+}
