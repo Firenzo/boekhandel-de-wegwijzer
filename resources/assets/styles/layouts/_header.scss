@@ -6,8 +6,8 @@
     @extend .nav-link;
 }
 
-header{
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.62)),url('../images/header-background.jpg') center no-repeat;
+header.banner{
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.62)),url(../images/header-background.jpg) center no-repeat;
     background-size: cover;
     //height:700px;
     color:white;

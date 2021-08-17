@@ -74,7 +74,7 @@ section.featured-products{
                 display:flex;
 
                 div.price{
-                    flex-basis:90%;
+                    flex-basis:calc(100% - 55px);
 
                     p{
                         font-size: 20px;
@@ -83,7 +83,7 @@ section.featured-products{
                     }
                 }
                 div.add-to-cart-button{
-                    flex-basis:10%;
+                    flex-basis:55px;
                     a{
                         background: #1C46B0;
                         padding:16px 17px;

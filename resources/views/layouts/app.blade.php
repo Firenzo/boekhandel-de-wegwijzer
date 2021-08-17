@@ -22,7 +22,7 @@
                 @endif
             </div>
         </div>
-        {{-- @php do_action('get_footer') @endphp --}}
+        @include('partials.latest-news')
         @include('partials.footer')
         @php wp_footer() @endphp
     </body>

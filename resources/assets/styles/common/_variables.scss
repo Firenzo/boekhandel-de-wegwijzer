@@ -19,6 +19,7 @@ $footer-background-color: #1C1C1C;
 @mixin min-600 {@media screen and (min-width: 600px){@content;}}
 @mixin min-768 {@media screen and (min-width: 768px){@content;}}
 @mixin min-834 {@media screen and (min-width: 834px){@content;}}
+@mixin min-850 {@media screen and (min-width: 850px){@content;}}
 @mixin min-1024 {@media screen and (min-width: 1024px){@content;}}
 @mixin min-1100 {@media screen and (min-width: 1100px){@content;}}
 @mixin min-1200 {@media screen and (min-width: 1200px){@content;}}
