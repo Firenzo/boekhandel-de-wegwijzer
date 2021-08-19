@@ -12,23 +12,24 @@
     $latestNews = new WP_Query($getLatestNews);  
 @endphp
 
-<section class="latest-news">
+<section class="latest-news news-list">
 	<div class="container">
         <h2>Het laatste Nieuws</h2>
-    </div>
 
-    <div class="news-list">
-    	@posts($latestNews)
-    	<div class="news-item">
-			<a href="@permalink">
-				<img src=@thumbnail('full', false) />
-				<h2>@title</h2>
-			</a>
-			<p>@published</p>
-			<p>@excerpt</p>
-			<a href="@permalink">lees meer</a>
-		</div>
-		@endposts
+        <div class="news-list">
+            @posts($latestNews)
+                <a href="@permalink" class="news-item">
+                    <div class="image">
+                        <img src=@thumbnail('full', false) />
+                    </div>  
+                    <h2>@title</h2>
+                    <p class="publish-date">@published</p>
+                    @excerpt
+                    <p href="@permalink" class="read-more">lees meer<i class="fas fa-chevron-right"></i></p>
+                </a>
+            @endposts
+        </div>
+        <a href="/nieuws" class="button">Bekijk meer nieuws</a>
     </div>
-    <a href="/nieuws" class="button">Bekijk meer nieuws</a>
+    
 </section>

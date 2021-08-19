@@ -11,10 +11,10 @@ import home from './routes/home';
 import aboutUs from './routes/about';
 
 import {library, dom} from '@fortawesome/fontawesome-svg-core';
-import {faShoppingCart, faBook, faGift, faBible, faSearch, faMapMarkerAlt, faPhone, faEnvelope} from '@fortawesome/free-solid-svg-icons';
+import {faShoppingCart, faBook, faGift, faBible, faSearch, faMapMarkerAlt, faPhone, faEnvelope, faChevronRight} from '@fortawesome/free-solid-svg-icons';
 import {faFacebook, faInstagram} from '@fortawesome/free-brands-svg-icons';
 
-library.add(faShoppingCart, faBook, faGift, faBible, faSearch, faMapMarkerAlt, faPhone, faEnvelope, faFacebook, faInstagram);
+library.add(faShoppingCart, faBook, faGift, faBible, faSearch, faMapMarkerAlt, faPhone, faEnvelope, faFacebook, faInstagram, faChevronRight);
 dom.watch();
 
 /** Populate Router instance with DOM routes */

@@ -21,12 +21,14 @@ $footer-background-color: #1C1C1C;
 @mixin min-834 {@media screen and (min-width: 834px){@content;}}
 @mixin min-850 {@media screen and (min-width: 850px){@content;}}
 @mixin min-1024 {@media screen and (min-width: 1024px){@content;}}
-@mixin min-1100 {@media screen and (min-width: 1100px){@content;}}
+@mixin min-1110 {@media screen and (min-width: 1110px){@content;}}
+@mixin min-1120 {@media screen and (min-width: 1120px){@content;}}
 @mixin min-1200 {@media screen and (min-width: 1200px){@content;}}
 @mixin min-1251 {@media screen and (min-width: 1251px){@content;}}
 @mixin min-1300 {@media screen and (min-width: 1300px){@content;}}
 @mixin min-1378 {@media screen and (min-width: 1378px){@content;}}
+@mixin min-1400 {@media screen and (min-width: 1400px){@content;}}
 @mixin min-1500 {@media screen and (min-width: 1500px){@content;}}
-@mixin min-1689 {@media screen and (min-width: 1689px){@content;}}
+@mixin min-1689 {@media screen and (min-width: 1689px){@content;}} // Max-width:1520px is reached
 @mixin min-1900 {@media screen and (min-width: 1900px){@content;}}
 @mixin min-2176 {@media screen and (min-width: 2176px){@content;}}
