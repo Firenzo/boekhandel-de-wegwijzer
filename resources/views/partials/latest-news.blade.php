@@ -25,7 +25,7 @@
                     <h2>@title</h2>
                     <p class="publish-date">@published</p>
                     @excerpt
-                    <p href="@permalink" class="read-more">lees meer<i class="fas fa-chevron-right"></i></p>
+                    <p href="@permalink" class="read-more">Lees meer<i class="fas fa-chevron-right"></i></p>
                 </a>
             @endposts
         </div>
