@@ -3,7 +3,11 @@
     @include('partials.head')
     <body @php body_class() @endphp>
         @php do_action('get_header') @endphp
-        @include('partials.header')
+        @if (is_front_page())
+            @include('partials.header')
+        @else
+            @include('partials.header-secondary')
+        @endif
         @if (is_front_page())
             @include("partials.featured-products")
         @endif

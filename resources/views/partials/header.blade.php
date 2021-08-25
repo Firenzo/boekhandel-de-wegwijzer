@@ -1,7 +1,7 @@
 <header class="banner">
     <div class="header-content">
         <div class="container">
-            <a class="brand-logo" href="{{ home_url('/') }}"><img src="@asset('images/logo-white.svg')" alt=""></a>
+            <a class="brand-logo" href="{{ home_url('/') }}"><img src="@asset('images/logo-white.svg')" alt="Het logo van Boekhandel De Wegwijzer"></a>
             <h2 class="headline"><?php echo get_bloginfo('description') ?></h2>
             <a href="#" class="button">Shop nu!</a>
         </div>

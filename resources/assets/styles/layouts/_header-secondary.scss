@@ -1,0 +1,225 @@
+header.secondary{
+	background:black;
+	// height:230px; //130px default
+	border-bottom: 12px solid $main-color;
+	display:flex;
+	align-items:center;
+	padding: 20px 0;
+	position:sticky;
+	top:0;
+
+	transition:top 0.6s ease;
+
+	&.hideHeader{
+		top:-199px;
+
+		@include min-450{
+			top: -209px;
+		}
+
+		@include min-1350{
+			top: -144px;
+		}
+	}
+
+	div.container{
+		display:flex;
+		flex-wrap:wrap;
+		justify-content: space-between;
+		align-items: center;
+
+		@include min-834{
+			// justify-content: flex-start;
+		}
+
+		a.brand-logo{
+			display:block;
+			flex-basis:180px;
+			margin-bottom:20px;
+
+			@include min-375{
+				margin-left: calc( (100% - 180px - 60px / 2) /2 )
+			}
+
+			@include min-450{
+				margin-left:0;
+			}
+
+			img{
+				width:100%;
+			}
+		}
+
+		div.search{
+	        display:flex;
+	        flex-basis:100%;
+	        // max-width:760px;
+	        margin-top:5px;
+	        order:2;
+
+	        @include min-834{
+	        	order: 3;
+	        }
+
+	        @include min-1350{
+	        	order:2;
+	        	flex-basis:calc(100% - 180px - 170px - 250px - 120px); // 100% - logo width - choose category width - nav width - 120px (to set margins)
+	        }
+
+	        input {
+	            height:50px;
+	            border-radius: 5px 0px 0 5px;
+	            border:none;
+	            width:calc(100% - 50px);
+	            padding:10px 10px;
+	            font-family: "Poppins", sans-serif;
+	            font-size:16px;
+	            font-weight:600;
+
+	            @include min-450{
+	            	height:60px;
+	            	width:calc(100% - 60px);
+	            }
+
+	            @include min-768{
+	                padding:10px 20px;
+	                font-size:18px;
+	            }
+
+	            &::placeholder{
+	                color:#9F9F9F;
+	                font-style:italic;
+	                font-size:14px;
+	                font-weight:400;
+
+	                @include min-768{
+	                    font-size:16px;
+	                }
+	            }
+
+	        }
+
+	        a.button {
+	            padding:0;
+	            display:flex;
+	            justify-content:center;
+	            align-items:center;
+	            width:50px;
+	            height:50px;
+	            border-radius: 0 5px 5px 0;
+	            box-sizing:border-box;
+	            box-shadow:none;
+
+	            @include min-450{
+	            	width:60px;
+	            	height:60px;
+	            }
+
+	            svg{
+	                width:50px;
+	                height:20px;
+
+	                @include min-450{
+	                	width:60px;
+	                	height:23px;
+	                }
+	            }
+	        }
+	    }
+
+	    button.mobileMenuButton{
+	    	order:1;
+	    	height:60px;
+	    	padding:17px 0;
+
+	    	@include min-450{
+	    		order:0;
+	    	}
+
+	    	@include min-834{
+	    		order:1;
+	    		flex-basis:170px;
+	    		font-size:16px;
+	    		display:flex;
+	    		justify-content: space-between;
+	    		background:transparent;
+	    		padding:17px 10px;
+
+	    		&:hover{
+	    			background:$secondary-color;
+	    		}
+	    	}
+
+	    	svg{
+	    		width:60px;
+	    		height:25px;
+
+	    		@include min-834{
+	    			width:23px;
+	    			height:23px;
+	    		}
+	    	}
+	    }
+
+	    nav.secondary{
+	    	display:none;
+
+	    	@include min-450{
+	    		display:block;
+	    	}
+
+	    	@include min-834{
+	    		order:2;
+	    		flex-basis:calc(100% - 180px - 170px - 100px); // 100% - logo width - choose category width - 100px (to set margins)
+	    		display:flex;
+	    		justify-content: flex-end;
+	    	}
+
+	    	@include min-1350{
+	    		order:3;
+	    		flex-basis:250px;
+	    	}
+
+	    	ul{
+	    		flex-basis:250px;
+	    		display:flex;
+	    		justify-content: space-between;
+	    		margin-bottom:0;
+	    		align-items:center;
+
+	    		li{
+	    			display:none;
+
+	    			a{
+	    				color:white;
+	    				font-weight:600;
+	    				font-size:16px;
+	    			}
+
+	    			@include min-834{
+	    				display:block;
+	    			}
+	    		}
+	    		li.shopping-cart{
+	    			display:block;
+	    			list-style:none;
+	    			a{
+	    				color:white;
+	    				display: flex;
+	    				justify-content: flex-end;
+	    				width:60px;
+
+	    				@include min-834{
+		    				width:auto;
+		    			}
+
+	    				svg{
+	    					width:30px;
+	    					height:30px;
+	    				}
+	    			}
+	    		}
+	    	}
+	    }
+	}
+}

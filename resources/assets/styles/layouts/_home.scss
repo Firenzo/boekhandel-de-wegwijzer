@@ -42,8 +42,8 @@ body>div.container div.content{
 			box-shadow:0 0 12px rgba(0,0,0,0.5);
 
 			@include min-450{
-				height:540px;
-				width:auto;
+				// height:540px;
+				width:100%;
 				display:block;
 				margin:auto;
 			}
