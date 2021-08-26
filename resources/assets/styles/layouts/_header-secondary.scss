@@ -12,6 +12,17 @@ header.secondary{
 
 	transition:top 0.6s ease;
 
+	&.addMoreSpace{
+
+		@include min-601{
+			margin-top:46px;
+		}
+
+		@include min-783{
+			margin-top:32px;
+		}
+	}
+
 	&.display{
 		display:block;
 	}

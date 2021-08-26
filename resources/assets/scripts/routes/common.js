@@ -82,8 +82,13 @@ export default {
         window.addEventListener('resize', setMenuButton)
         footerCopyrightBox.innerHTML =  `&copy; Boekhandel De Wegwijzer ${new Date().getFullYear()}`
         setMenuButton();
+        
         if(window.location.pathname === '/'){
             setup();
+        }
+
+        if (!!document.getElementById('wpadminbar')) {
+            secondaryHeader.classList.add('addMoreSpace')
         }
     },
     finalize() {

@@ -17,7 +17,9 @@ $footer-background-color: #1C1C1C;
 @mixin min-375 {@media screen and (min-width: 375px){@content;}}
 @mixin min-450 {@media screen and (min-width: 450px){@content;}}
 @mixin min-600 {@media screen and (min-width: 600px){@content;}}
+@mixin min-601 {@media screen and (min-width: 601px){@content;}} //for wp-admin bar tablet size
 @mixin min-768 {@media screen and (min-width: 768px){@content;}}
+@mixin min-783 {@media screen and (min-width: 783px){@content;}} // for wp-admin bar
 @mixin min-834 {@media screen and (min-width: 834px){@content;}}
 @mixin min-850 {@media screen and (min-width: 850px){@content;}}
 @mixin min-1024 {@media screen and (min-width: 1024px){@content;}}
