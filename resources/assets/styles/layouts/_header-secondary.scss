@@ -2,13 +2,37 @@ header.secondary{
 	background:black;
 	// height:230px; //130px default
 	border-bottom: 12px solid $main-color;
-	display:flex;
+	//display:flex;
 	align-items:center;
 	padding: 20px 0;
 	position:sticky;
 	top:0;
+	display:none;
+	z-index: 1;
 
 	transition:top 0.6s ease;
+
+	&.display{
+		display:block;
+	}
+
+	&.fixed{
+		position:fixed;
+		left:0;
+		right:0;
+	}
+
+	&.noShow{
+		top:-199px;
+
+		@include min-450{
+			top: -209px;
+		}
+
+		@include min-1350{
+			top: -144px;
+		}
+	}
 
 	&.hideHeader{
 		top:-199px;

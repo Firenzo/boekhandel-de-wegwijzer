@@ -4,6 +4,7 @@
     <body @php body_class() @endphp>
         @php do_action('get_header') @endphp
         @if (is_front_page())
+            @include('partials.header-secondary')
             @include('partials.header')
         @else
             @include('partials.header-secondary')

@@ -2,32 +2,89 @@ export default {
     init() {
         // JavaScript to be fired on all pages
         let lastScrollTop = 0;
+        const mobileMenuButton = document.querySelector('header.secondary button.mobileMenuButton')
+        const footerCopyrightBox = document.querySelector('footer.content-info div.footer-copyright span')
+        const secondaryHeader = document.querySelector('header.secondary');
 
         const setMenuButton = () => {
             if (window.innerWidth >= 834 ) {
-                document.querySelector('header.secondary button.mobileMenuButton').innerHTML = 'Kies categorie <i class="fas fa-chevron-down"></i>';
+                mobileMenuButton.innerHTML = 'Kies categorie <i class="fas fa-chevron-down"></i>';
             } else {
-                document.querySelector('header.secondary button.mobileMenuButton').innerHTML = '<i class="fas fa-bars"></i>';
+                mobileMenuButton.innerHTML = '<i class="fas fa-bars"></i>';
             }
         }
-        document.querySelector('footer.content-info div.footer-copyright span').innerHTML =  `&copy; Boekhandel De Wegwijzer ${new Date().getFullYear()}`
-        window.addEventListener('resize', setMenuButton)
 
-        if (window.location.pathname != '/') {
-            window.addEventListener('scroll', function(){
-                 let st = window.pageYOffset || document.documentElement.scrollTop;
-                 if (st > lastScrollTop){
-                        //if statement toevoegen. Als class al bestaat
-                        document.querySelector('header.secondary').classList.add('hideHeader')
-                 } else {
-                        document.querySelector('header.secondary').classList.remove('hideHeader')
-                 }
-                 lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
-            }, false);
+        const setup = () => {
+            const options = {
+                rootMargin: '0px 0px 0px 0px',
+            }
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting){
+                        secondaryHeader.classList.add('noShow')
+                    } else {
+                        secondaryHeader.classList.remove('noShow')
+                    }
+                })
+            }, options)
+
+            const el = document.querySelector('header.banner')
+            observer.observe(el);
         }
 
-        setMenuButton();
+        const checkScrollSpeed = (function(settings) {
+            settings = settings || {};
 
+            let lastPos, newPos, timer, delta,
+            delay = settings.delay || 50;
+
+            function clear() {
+                lastPos = null;
+                delta = 0;
+            }
+
+            clear();
+
+            return function() {
+                newPos = window.scrollY;
+                if (lastPos != null) { // && newPos < maxScroll
+                    delta = newPos - lastPos;
+                }
+                lastPos = newPos;
+                clearTimeout(timer);
+                timer = setTimeout(clear, delay);
+                return delta;
+            };
+        })();
+
+        window.addEventListener('scroll', function(){
+            let speed = checkScrollSpeed()
+            console.log(speed);
+            if (speed > 7) {
+                secondaryHeader.classList.add('hideHeader')
+            }
+
+            if (speed < -15) {
+                secondaryHeader.classList.remove('hideHeader')
+            }
+        }, false);
+
+        if (window.location.pathname === '/') {
+            secondaryHeader.classList.add('fixed')
+            setTimeout(() => {
+                secondaryHeader.classList.add('display')
+            },1600)
+        } else {
+            secondaryHeader.classList.add('display')
+        }
+
+        window.addEventListener('resize', setMenuButton)
+        footerCopyrightBox.innerHTML =  `&copy; Boekhandel De Wegwijzer ${new Date().getFullYear()}`
+        setMenuButton();
+        if(window.location.pathname === '/'){
+            setup();
+        }
     },
     finalize() {
         // JavaScript to be fired on all pages, after page specific JS is fired
