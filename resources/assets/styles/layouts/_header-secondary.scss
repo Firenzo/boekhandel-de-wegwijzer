@@ -21,6 +21,31 @@ header.secondary{
 		@include min-783{
 			margin-top:32px;
 		}
+
+		&.sticky{
+			@include min-601{
+				margin-top:0;
+				top:46px;
+			}
+	
+			@include min-783{
+				margin-top:0;
+				top:32px;
+			}
+
+			&.hideHeader{
+				top:-199px;
+		
+				@include min-450{
+					top: -209px;
+				}
+		
+				@include min-1350{
+					top: -144px;
+				}
+			}
+
+		}
 	}
 
 	&.display{

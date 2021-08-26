@@ -76,6 +76,7 @@ export default {
                 secondaryHeader.classList.add('display')
             },1600)
         } else {
+            secondaryHeader.classList.add('sticky')
             secondaryHeader.classList.add('display')
         }
 
