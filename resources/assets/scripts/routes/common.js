@@ -78,6 +78,7 @@ export default {
         } else {
             secondaryHeader.classList.add('sticky')
             secondaryHeader.classList.add('display')
+            document.querySelector('article.two-columns').classList.add('add-space')
         }
 
         window.addEventListener('resize', setMenuButton)

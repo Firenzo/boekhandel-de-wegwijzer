@@ -17,9 +17,6 @@
                 <main class="main">
                     @yield('content')
                 </main>
-                <div class="image">
-                        <?php echo get_the_post_thumbnail() ?>
-                </div>
                 @if (App\display_sidebar())
                     <aside class="sidebar">
                         @include('partials.sidebar')
@@ -27,7 +24,18 @@
                 @endif
             </div>
         </div>
-        @include('partials.latest-news')
+        @if(is_page('contact'))
+            <div class="mapouter"><div class="gmap_canvas"><iframe id="gmap_canvas" src="https://maps.google.com/maps?q=Makassarweg%2080&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.whatismyip-address.com/elementor/">elementor pro discount</a><br><style>.mapouter{position:relative;text-align:right;}</style><a href="https://www.embedgooglemap.net">embed map in website</a><style>.gmap_canvas {overflow:hidden;background:none!important;}</style></div></div>
+        @endif
+
+        @if(get_post_type() == 'post' || is_front_page())
+            @include('partials.latest-news')
+        @endif
+
+        @if(get_post_type() == 'product')
+            <h1>Related products</h1>
+        @endif
+
         @include('partials.footer')
         @php wp_footer() @endphp
     </body>

@@ -1,0 +1,304 @@
+main article.news-item{
+	padding-top:50px;
+	margin: auto;
+    max-width: 750px;
+
+    div.article-text{
+    	time + span{
+    		margin-left:5px;
+    		margin-right:5px;
+    	}
+
+    	p.author:first-of-type{
+    		display:inline-block;
+    		margin-bottom:20px;
+    	}
+
+    	figure.wp-block-image{
+    		img{
+    			max-width: none;
+			    width: 100%;
+			    height: auto;
+			    border-radius: 5px;
+			    box-shadow: 0 0 12px rgb(0 0 0 / 50%);
+    		}
+    	}
+    }
+
+    div.article-image{
+    	height: 150px;
+    	background: gray;
+    	width: 100%;
+    	overflow: hidden;
+    	border-radius:5px;
+    	box-shadow: 0 0 7px rgba(0,0,0,0.5);
+    	margin-bottom:20px;
+
+    	@include min-834{
+    		height:200px;
+    	}
+
+    	img{
+    		width:100%;
+    		height:auto;
+    		position:relative;
+    		bottom:0;
+    	}
+    }
+}
+
+main{
+	article.two-columns{
+		display:flex;
+		flex-wrap:wrap;
+
+		&.add-space{
+			padding:50px 0;
+		}
+
+		@include min-834{
+			flex-wrap:nowrap;
+			justify-content:space-between;
+		}
+
+		div.article-text{
+			flex-basis:100%;
+
+			@include min-834{
+				flex-basis:calc(50% - 10px);
+			}
+
+			a.button{
+				display:flex;
+				align-items:center;
+				justify-content: center;
+				padding:18px 0;
+				width:200px;
+
+				svg{
+					margin-left:8px;
+				}
+			}
+		}
+
+		div.article-image{
+			flex-basis:100%;
+			margin-top:30px;
+
+			@include min-834{
+				flex-basis:calc(50% - 10px);
+			}
+
+			img{
+				max-width: 450px;
+				width:100%;
+				height:auto;
+				border-radius:10px;
+				box-shadow:0 0 12px rgba(0,0,0,0.5);
+				display:block;
+				margin:auto;
+
+				@include min-1120{
+					max-width:none;
+				}
+			}
+		}
+	}
+
+	div.additional-page-image{
+		height:400px;
+		width:100%;
+		background:$main-color;
+		border-radius:10px;
+		box-shadow: 0 0 7px rgba(0,0,0,0.5);
+		margin-top:50px;
+		margin-bottom:100px;
+		display:none;
+		overflow:hidden;
+
+		@include min-834{
+			display:block;
+		}
+	}
+}
+
+div.contact-info-wrapper{
+    @include min-850{
+        flex-basis:calc(100% - 450px);
+    }
+
+    @include min-1024{
+        flex-basis:320px;
+    }
+
+    .address, .phone-number, .email{
+        display:flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        svg{
+            margin-right:20px;
+        }
+    }
+
+    &>div:not(:last-of-type){
+        margin-bottom:20px;
+    }
+
+    .address svg{
+        font-size:25px;
+    }
+
+    .phone-number svg{
+        font-size:22px;
+    }
+
+    .email svg{
+        font-size:22px;
+    }
+
+    .social-media{
+
+        a{
+            color:white;
+
+            &:not(:last-of-type){
+                margin-right:20px;
+            }
+
+            svg{
+                font-size:35px;
+            }
+        }
+        
+    }
+}
+
+
+
+main {
+
+	div.news-list{
+		display:flex;
+		flex-wrap:wrap;
+		margin-bottom:40px;
+		max-width:1200px;
+		margin:auto;
+
+		>h1{
+			flex-basis:100%;
+		}
+
+		article.news-item-blog-page{
+			flex-basis:100%;
+			border: 1px solid #ddd;
+
+			@include min-500{
+				flex-basis:calc(100% / 2);
+			}
+
+			@include min-1024{
+				flex-basis:calc(100% / 3);
+			}
+
+			&:not(:last-of-type){
+				margin-bottom:25px;
+
+				@include min-500{
+					margin-bottom:0;
+				}
+			}
+
+			a.news-item{
+				text-decoration:none;
+				display:block;
+				height:100%;
+				border-radius: 3px;
+				box-sizing:border-box;
+
+				@include min-500{
+					display:flex;
+					flex-direction:column;
+				}
+
+				@include min-1024{
+					flex-basis:calc(100% / 3 - 20px);
+					padding-bottom:20px;
+				}
+
+				> *{
+					padding:0 10px;
+
+					@include min-1024{
+						padding:0 10px;
+					}
+				}
+
+				>div.image{
+					padding-top: 10px;
+				}
+
+				&:not(:last-of-type){
+					margin-bottom:50px;
+
+					@include min-1024{
+						margin:0;
+					}
+				}
+
+				div.image{
+					margin-bottom:20px;
+					img{
+						width:100%;
+					}
+				}
+
+				h2{
+					color:black;
+					margin-bottom:5px;
+				}
+				p.publish-date{
+					color:#7B7B7B;
+					font-size:14px;
+				}
+
+				h2 + p{
+					color:black;
+				}
+
+				p.read-more{
+					display:flex;
+					align-items:center;
+					font-weight:700;
+					color:black;
+
+					@include min-500{
+						margin-top:auto;
+					}
+
+					svg{
+						margin-left:5px;
+					}
+				}
+			}
+		}
+	}
+}
+
+div.gmap_canvas{
+	height:300px;
+
+	@include min-600{
+		height:400px;
+	}
+
+	iframe{
+		height:300px;
+		width:100%;
+
+		@include min-600{
+			height:400px;
+		}
+
+	}
+}

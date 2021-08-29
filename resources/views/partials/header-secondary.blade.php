@@ -15,8 +15,9 @@
 
         <nav class="secondary">
         	<ul>
-        		<li class="about"><a href="#">Over Ons</a></li>
-        		<li class="news"><a href="#">Nieuws</a></li>
+        		<li class="about"><a href="/over-ons">Over Ons</a></li>
+        		<li class="news"><a href="/nieuws">Nieuws</a></li>
+        		<li class="contact"><a href="/contact">Contact</a></li>
         		<li class="shopping-cart"><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
         	</ul>
         </nav>

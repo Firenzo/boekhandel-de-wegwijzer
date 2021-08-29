@@ -123,7 +123,7 @@ header.secondary{
 
 	        @include min-1350{
 	        	order:2;
-	        	flex-basis:calc(100% - 180px - 170px - 250px - 120px); // 100% - logo width - choose category width - nav width - 120px (to set margins)
+	        	flex-basis:calc(100% - 180px - 170px - 310px - 120px); // 100% - logo width - choose category width - nav width - 120px (to set margins)
 	        }
 
 	        input {
@@ -237,11 +237,11 @@ header.secondary{
 
 	    	@include min-1350{
 	    		order:3;
-	    		flex-basis:250px;
+	    		flex-basis:310px;
 	    	}
 
 	    	ul{
-	    		flex-basis:250px;
+	    		flex-basis:310px;
 	    		display:flex;
 	    		justify-content: space-between;
 	    		margin-bottom:0;

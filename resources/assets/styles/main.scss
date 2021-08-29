@@ -40,10 +40,16 @@ body {
     //       Rubik   - 400regular, 700bold
     font-family: "Rubik", sans-serif;
 
+    h1{
+        font-weight:700;
+        font-size:35px;
+        margin-bottom: 30px;
+    }
+
     h2{
-        font-family: "Poppins", sans-serif;
+        font-family: "Rubik", sans-serif;
         font-weight: 700;
-        font-size:23px;
+        font-size:25px;
     }
 
     div.container{
@@ -54,6 +60,11 @@ body {
         margin-right:0;
         padding-right:0;
         margin:auto;
+    }
+
+    div.article-text p{
+        margin-bottom: 1.9rem;
+        line-height: 1.9rem;
     }
 
     a.button, a.wp-block.button__link, button{
@@ -79,6 +90,67 @@ body {
             border: 1px solid white;
             box-shadow:none;
             transition: background 0.4s ease, border 0.2s ease;
+        }
+    }
+}
+
+
+body section.featured-products + div.wrap.container:first-of-type{
+    margin-top:40px;
+    margin-bottom: 40px;
+
+    div.content{
+        main article.two-columns{
+            display:flex;
+            flex-wrap:wrap;
+
+            @include min-834{
+                flex-wrap:nowrap;
+                justify-content:space-between;
+            }
+
+            div.article-text{
+                flex-basis:100%;
+
+                @include min-834{
+                    flex-basis:calc(50% - 10px);
+                }
+
+                a.button{
+                    display:flex;
+                    align-items:center;
+                    justify-content: center;
+                    padding:18px 0;
+                    width:200px;
+
+                    svg{
+                        margin-left:8px;
+                    }
+                }
+            }
+
+            div.article-image{
+                flex-basis:100%;
+                margin-top:30px;
+
+                @include min-834{
+                    flex-basis:calc(50% - 10px);
+                }
+
+                img{
+                    max-width: 450px;
+                    width:100%;
+                    height:auto;
+                    border-radius:10px;
+                    box-shadow:0 0 12px rgba(0,0,0,0.5);
+                    display:block;
+                    margin:auto;
+
+                    @include min-1120{
+                        max-width:none;
+                    }
+                }
+            }
         }
     }
 }
