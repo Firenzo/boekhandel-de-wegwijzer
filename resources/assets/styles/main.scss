@@ -40,6 +40,10 @@ body {
     //       Rubik   - 400regular, 700bold
     font-family: "Rubik", sans-serif;
 
+    &.noScroll{
+        overflow:hidden;
+    }
+
     h1{
         font-weight:700;
         font-size:35px;
