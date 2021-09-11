@@ -13,21 +13,12 @@
   <h1>Nieuws</h1>
   @while (have_posts()) @php the_post() @endphp
     @include('partials.content-'.get_post_type())
-    @include('partials.content-'.get_post_type())
-    @include('partials.content-'.get_post_type())
-    @include('partials.content-'.get_post_type())
-    @include('partials.content-'.get_post_type())
-    @include('partials.content-'.get_post_type())
-    @include('partials.content-'.get_post_type())
-    @include('partials.content-'.get_post_type())
-    @include('partials.content-'.get_post_type())
-
   @endwhile
   @php
     global $wp_query;
-      $number_of_pages = $wp_query->max_num_pages / 3 * 200;
-      // $currentPage = (get_query_var('paged')) ? get_query_var('paged') : 1;
-      $currentPage = 198;
+      $number_of_pages = $wp_query->max_num_pages;
+      $currentPage = (get_query_var('paged')) ? get_query_var('paged') : 1;
+      // $currentPage = 150;
       $prevPage = $currentPage - 1;
       $nextPage = $currentPage + 1;
   @endphp
@@ -89,5 +80,8 @@
       @endif
       
     </ul>
+    @php
+      echo "<p>Pagina $currentPage van $number_of_pages</p>"
+    @endphp
   </nav>
 @endsection

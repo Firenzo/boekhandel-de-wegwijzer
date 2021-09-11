@@ -290,21 +290,32 @@ main {
 		margin:auto;
 		margin-top:30px;
 		margin-bottom:80px;
+		display:flex;
+		flex-direction:column;
 
 		ul{
 			width:100%;
 			display:flex;
-			justify-content: space-between;
+			justify-content: center;
 
 			li{
 				list-style:none;
 				// background: $main-color;
 				border-radius:5px;
+				display:none;
+
+				@include min-1024{
+					display:flex;
+				}
 
 				&.prevButton, &.nextButton{
 					a.button{
 						width:110px;
 					}
+				}
+
+				&:not(:first-of-type){
+					margin-left:20px;
 				}
 
 				&:hover{
@@ -317,6 +328,10 @@ main {
 					a.button{
 						background:$secondary-color;
 					}
+				}
+
+				&.prevButton, &.nextButton{
+					display:flex;
 				}
 
 				a.button{
@@ -340,6 +355,15 @@ main {
 					font-weight:900;
 					font-size:18px;
 				}
+			}
+		}
+
+		>p{
+			display:block;
+			text-align:center;
+
+			@include min-1024{
+				display:none;
 			}
 		}
 	}
