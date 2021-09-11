@@ -26,6 +26,7 @@ export default {
                 entries.forEach(entry => {
                     if(entry.isIntersecting){
                         secondaryHeader.classList.add('noShow')
+                        closeMenu();
                     } else {
                         secondaryHeader.classList.remove('noShow')
                     }

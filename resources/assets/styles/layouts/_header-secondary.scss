@@ -317,6 +317,10 @@ header.secondary{
 	    		}
 	    	}
 
+	    	@include min-1689{
+	    		left: calc((100vw - 1520px) /2 + 180px + 30px);
+	    	}
+
 	    	&.showMenu{
 	    		transform:translateX(0vw);
 	    	}
