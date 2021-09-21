@@ -15,6 +15,10 @@ export default {
             } else {
                 mobileMenuButton.innerHTML = '<i class="fas fa-bars"></i>';
             }
+
+            if (window.innerWidth >= 1024) {
+                secondaryHeader.classList.remove('hideHeader');
+            }
         }
 
         const setup = () => {
@@ -101,15 +105,17 @@ export default {
         }
 
         window.addEventListener('scroll', function(){
-            let speed = checkScrollSpeed()
-            console.log(speed);
-            if (speed > 7) {
-                secondaryHeader.classList.add('hideHeader')
-                menuList.classList.remove('showMenu')
-            }
+            if (window.innerWidth < 1024) {
+                let speed = checkScrollSpeed()
+                console.log(speed);
+                if (speed > 7) {
+                    secondaryHeader.classList.add('hideHeader')
+                    menuList.classList.remove('showMenu')
+                }
 
-            if (speed < -15) {
-                secondaryHeader.classList.remove('hideHeader')
+                if (speed < -15) {
+                    secondaryHeader.classList.remove('hideHeader')
+                }
             }
         }, false);
 
