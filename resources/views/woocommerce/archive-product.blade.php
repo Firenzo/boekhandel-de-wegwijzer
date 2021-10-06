@@ -15,14 +15,106 @@ the readme will list any important changes.
 --}}
 
 @extends('layouts.app')
-
 @section('content')
+<?php woocommerce_breadcrumb(); ?>
+<div id="shop-layout">
+  <section class="product-archive-filter">
+    <h1>Filteropties</h1>
+    <form action="">
+      <fieldset class="filter-list subcategories-filter">
+        <h2>Genres</h2>
+
+        <div class="checkbox-and-label">
+          <input type="checkbox" name="kinderboeken" id="kinderboeken">
+          <label for="kinderboeken">Kinderboeken</label>
+        </div>
+
+        <div class="checkbox-and-label">
+          <input type="checkbox" name="klassiek" id="klassiek">
+          <label for="klassiek">Klassiek</label>
+        </div>
+
+        <div class="checkbox-and-label">
+          <input type="checkbox" name="roman" id="roman">
+          <label for="roman">Roman</label>
+        </div>
+
+        <div class="checkbox-and-label">
+          <input type="checkbox" name="informatief" id="informatief">
+          <label for="informatief">Informatief</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="filter-list language-filter">
+        <h2>Taal</h2>
+
+        <div class="checkbox-and-label">
+          <input type="checkbox" name="nederlands" id="nederlands">
+          <label for="nederlands">Nederlands</label>
+        </div>
+
+        <div class="checkbox-and-label">
+          <input type="checkbox" name="engels" id="engels">
+          <label for="engels">Engels</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="filter-list price-filter">
+        <h2>Prijs</h2>
+
+        <div class="label-and-input">
+          <label for="minumum-price">Van</label>
+          <div class="price-input">
+            <div class="euro-sign-before-input-field">€</div>
+            <input type="text" name="minumum-price">
+          </div>  
+        </div>
+
+        <div class="label-and-input">
+          <label for="maximum-price">Tot</label>
+          <div class="price-input">
+            <div class="euro-sign-before-input-field">€</div>
+            <input type="text" name="maximum-price">
+          </div>  
+        </div>
+
+      </fieldset>
+      <button type="submit">Filters Toepassen</button>
+    </form>
+  </section>
+  <section class="product-archive">
+    
+  
   @php
-    do_action('get_header', 'shop');
-    do_action('woocommerce_before_main_content');
+    // do_action('get_header', 'shop');
+    // do_action('woocommerce_before_main_content');
+    $term_object = get_queried_object();
   @endphp
 
-  <header class="woocommerce-products-header">
+  @if( is_product_category() )
+    <h1><?php echo $term_object->name; ?></h1>
+    <p class="category-description"><?php echo $term_object->description; ?></p>
+  @endif
+
+  <div class="filterOptions">
+    <button class="show-filter-options"><i class="fas fa-sliders-h"></i> Filter</button>
+  </div>
+
+  <div class="sortOptions">
+    <form class="woocommerce-ordering" method="get">
+      <select name="orderby" class="orderby" aria-label="Shop order">
+        <option value="menu_order" selected="selected">Standaard sortering</option>
+        <option value="popularity">Sorteer op populariteit</option>
+        {{-- <option value="rating">Sort by average rating</option> --}}
+        {{-- <option value="date">Sort by latest</option> --}}
+        <option value="price">Prijs: Laag - hoog</option>
+        <option value="price-desc">Prijs: Hoog - laag</option>
+      </select>
+      <input type="hidden" name="paged" value="1">
+    </form>
+  </div>
+
+  {{-- <header class="woocommerce-products-header">
     @if(apply_filters('woocommerce_show_page_title', true))
       <h1 class="woocommerce-products-header__title page-title">{!! woocommerce_page_title(false) !!}</h1>
     @endif
@@ -30,7 +122,7 @@ the readme will list any important changes.
     @php
       do_action('woocommerce_archive_description');
     @endphp
-  </header>
+  </header> --}}
 
   @if(woocommerce_product_loop())
     @php
@@ -63,4 +155,7 @@ the readme will list any important changes.
     do_action('get_sidebar', 'shop');
     do_action('get_footer', 'shop');
   @endphp
+  </section>
+</div>
 @endsection
+

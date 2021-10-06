@@ -145,6 +145,46 @@ export default {
         if (!!document.getElementById('wpadminbar')) {
             secondaryHeader.classList.add('addMoreSpace')
         }
+
+        //Code for Product Archive page
+
+        if(window.location.pathname.includes('/categorie/')) {
+            const filterButton = document.querySelector('button.show-filter-options');
+            const filterOptions = document.querySelector('section.product-archive-filter');
+            let clicksRegistered = 0;
+
+            const openFilter = () => {
+                document.querySelector('html').addEventListener('click', checkforClicksOutsideOfFilter)
+                filterOptions.classList.add('show');
+            }
+
+            const closeFilter = () => {
+                document.querySelector('html').removeEventListener('click', checkforClicksOutsideOfFilter)
+                filterOptions.classList.remove('show');
+                clicksRegistered = 0;
+            }
+
+            const checkFilter = (e) => {
+            e.preventDefault();
+                if (filterOptions.classList.contains('show')) {
+                    closeFilter();
+                } else {
+                    openFilter();
+                }
+            }
+
+            const checkforClicksOutsideOfFilter = (event) => {
+                if (!$(event.target).closest('section.product-archive-filter').length) {
+                    clicksRegistered += 1;
+                    console.log(clicksRegistered);
+                    if (clicksRegistered >= 2) {
+                        closeFilter();
+                    }
+                }
+            }
+
+            filterButton.addEventListener('click', checkFilter)
+        }
     },
     finalize() {
         // JavaScript to be fired on all pages, after page specific JS is fired

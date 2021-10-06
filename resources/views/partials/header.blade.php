@@ -3,7 +3,7 @@
         <div class="container">
             <a class="brand-logo" href="{{ home_url('/') }}"><img src="@asset('images/logo-white.svg')" alt="Het logo van Boekhandel De Wegwijzer"></a>
             <h2 class="headline"><?php echo get_bloginfo('description') ?></h2>
-            <a href="#" class="button">Shop nu!</a>
+            <a href="/shop" class="button">Shop nu!</a>
         </div>
     </div>
 
@@ -11,9 +11,9 @@
         <div class="container">
         <h2>Waar bent u naar op zoek?</h2>
             <div class="categories">
-                <a href="#" class="button transparent"><i class="fas fa-book"></i> Boeken</a>
-                <a href="#" class="button transparent"><i class="fas fa-gift"></i> Cadeau's</a>
-                <a href="#" class="button transparent"><i class="fas fa-bible"></i> Bijbels</a>
+                <a href="<?php echo get_term_link('boeken', 'product_cat') ?>" class="button transparent"><i class="fas fa-book"></i> Boeken</a>
+                <a href="<?php echo get_term_link('cadeaus', 'product_cat') ?>" class="button transparent"><i class="fas fa-gift"></i> Cadeau's</a>
+                <a href="<?php echo get_term_link('bijbels', 'product_cat') ?>" class="button transparent"><i class="fas fa-bible"></i> Bijbels</a>
             </div>
 
             <div class="search">

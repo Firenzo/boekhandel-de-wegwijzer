@@ -1,0 +1,538 @@
+[
+    {
+        "id": 61,
+        "name": "Aangespoeld Geluk",
+        "slug": "aangespoeld-geluk",
+        "permalink": "http:\/\/localhost:8000\/shop\/uncategorized\/aangespoeld-geluk\/",
+        "date_created": "2021-06-28T00:51:21",
+        "date_created_gmt": "2021-06-28T00:51:21",
+        "date_modified": "2021-07-11T13:32:21",
+        "date_modified_gmt": "2021-07-11T13:32:21",
+        "type": "simple",
+        "status": "publish",
+        "featured": true,
+        "catalog_visibility": "visible",
+        "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porttitor ex orci, ut scelerisque lorem interdum sed. Integer vestibulum sed dui a sagittis.<\/p>\n",
+        "short_description": "<p>Lorem Ipsum<\/p>\n",
+        "sku": "",
+        "price": "19.99",
+        "regular_price": "19.99",
+        "sale_price": "",
+        "date_on_sale_from": null,
+        "date_on_sale_from_gmt": null,
+        "date_on_sale_to": null,
+        "date_on_sale_to_gmt": null,
+        "on_sale": false,
+        "purchasable": true,
+        "total_sales": 0,
+        "virtual": false,
+        "downloadable": false,
+        "downloads": [],
+        "download_limit": -1,
+        "download_expiry": -1,
+        "external_url": "",
+        "button_text": "",
+        "tax_status": "taxable",
+        "tax_class": "",
+        "manage_stock": false,
+        "stock_quantity": null,
+        "backorders": "no",
+        "backorders_allowed": false,
+        "backordered": false,
+        "low_stock_amount": null,
+        "sold_individually": false,
+        "weight": "",
+        "dimensions": {
+            "length": "",
+            "width": "",
+            "height": ""
+        },
+        "shipping_required": true,
+        "shipping_taxable": true,
+        "shipping_class": "",
+        "shipping_class_id": 0,
+        "reviews_allowed": true,
+        "average_rating": "0.00",
+        "rating_count": 0,
+        "upsell_ids": [],
+        "cross_sell_ids": [],
+        "parent_id": 0,
+        "purchase_note": "",
+        "categories": [
+            {
+                "id": 15,
+                "name": "Uncategorized",
+                "slug": "uncategorized"
+            }
+        ],
+        "tags": [],
+        "images": [
+            {
+                "id": 62,
+                "date_created": "2021-06-28T00:51:08",
+                "date_created_gmt": "2021-06-28T00:51:08",
+                "date_modified": "2021-06-28T00:51:08",
+                "date_modified_gmt": "2021-06-28T00:51:08",
+                "src": "http:\/\/localhost:8000\/wp-content\/uploads\/2021\/06\/Aangespoeld-geluk.jpg",
+                "name": "Aangespoeld geluk",
+                "alt": ""
+            }
+        ],
+        "attributes": [],
+        "default_attributes": [],
+        "variations": [],
+        "grouped_products": [],
+        "menu_order": 0,
+        "price_html": "<span class=\"woocommerce-Price-amount amount\"><bdi><span class=\"woocommerce-Price-currencySymbol\">&euro;<\/span>19,99<\/bdi><\/span>",
+        "related_ids": [
+            53,
+            59,
+            55,
+            57
+        ],
+        "meta_data": [],
+        "stock_status": "instock",
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/localhost:8000\/wp-json\/wc\/v3\/products\/61"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/localhost:8000\/wp-json\/wc\/v3\/products"
+                }
+            ]
+        }
+    },
+    {
+        "id": 59,
+        "name": "Cox, Amanda - Waar is mijn thuis",
+        "slug": "cox-amanda-waar-is-mijn-thuis",
+        "permalink": "http:\/\/localhost:8000\/shop\/uncategorized\/cox-amanda-waar-is-mijn-thuis\/",
+        "date_created": "2021-06-28T00:16:36",
+        "date_created_gmt": "2021-06-28T00:16:36",
+        "date_modified": "2021-07-11T13:32:39",
+        "date_modified_gmt": "2021-07-11T13:32:39",
+        "type": "simple",
+        "status": "publish",
+        "featured": true,
+        "catalog_visibility": "visible",
+        "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porttitor ex orci, ut scelerisque lorem interdum sed. Integer vestibulum sed dui a sagittis.<\/p>\n",
+        "short_description": "<p>Lorem Ipsum<\/p>\n",
+        "sku": "",
+        "price": "12.99",
+        "regular_price": "12.99",
+        "sale_price": "",
+        "date_on_sale_from": null,
+        "date_on_sale_from_gmt": null,
+        "date_on_sale_to": null,
+        "date_on_sale_to_gmt": null,
+        "on_sale": false,
+        "purchasable": true,
+        "total_sales": 0,
+        "virtual": false,
+        "downloadable": false,
+        "downloads": [],
+        "download_limit": -1,
+        "download_expiry": -1,
+        "external_url": "",
+        "button_text": "",
+        "tax_status": "taxable",
+        "tax_class": "",
+        "manage_stock": false,
+        "stock_quantity": null,
+        "backorders": "no",
+        "backorders_allowed": false,
+        "backordered": false,
+        "low_stock_amount": null,
+        "sold_individually": false,
+        "weight": "",
+        "dimensions": {
+            "length": "",
+            "width": "",
+            "height": ""
+        },
+        "shipping_required": true,
+        "shipping_taxable": true,
+        "shipping_class": "",
+        "shipping_class_id": 0,
+        "reviews_allowed": true,
+        "average_rating": "0.00",
+        "rating_count": 0,
+        "upsell_ids": [],
+        "cross_sell_ids": [],
+        "parent_id": 0,
+        "purchase_note": "",
+        "categories": [
+            {
+                "id": 15,
+                "name": "Uncategorized",
+                "slug": "uncategorized"
+            }
+        ],
+        "tags": [],
+        "images": [
+            {
+                "id": 60,
+                "date_created": "2021-06-28T00:49:51",
+                "date_created_gmt": "2021-06-28T00:49:51",
+                "date_modified": "2021-06-28T00:49:51",
+                "date_modified_gmt": "2021-06-28T00:49:51",
+                "src": "http:\/\/localhost:8000\/wp-content\/uploads\/2021\/06\/Waar-is-mijn-thuis.jpg",
+                "name": "Waar is mijn thuis",
+                "alt": ""
+            }
+        ],
+        "attributes": [],
+        "default_attributes": [],
+        "variations": [],
+        "grouped_products": [],
+        "menu_order": 0,
+        "price_html": "<span class=\"woocommerce-Price-amount amount\"><bdi><span class=\"woocommerce-Price-currencySymbol\">&euro;<\/span>12,99<\/bdi><\/span>",
+        "related_ids": [
+            57,
+            53,
+            55,
+            61
+        ],
+        "meta_data": [],
+        "stock_status": "instock",
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/localhost:8000\/wp-json\/wc\/v3\/products\/59"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/localhost:8000\/wp-json\/wc\/v3\/products"
+                }
+            ]
+        }
+    },
+    {
+        "id": 57,
+        "name": "Ondergaande zon",
+        "slug": "ondergaande-zon",
+        "permalink": "http:\/\/localhost:8000\/shop\/uncategorized\/ondergaande-zon\/",
+        "date_created": "2021-06-28T00:15:50",
+        "date_created_gmt": "2021-06-28T00:15:50",
+        "date_modified": "2021-07-11T13:33:04",
+        "date_modified_gmt": "2021-07-11T13:33:04",
+        "type": "simple",
+        "status": "publish",
+        "featured": true,
+        "catalog_visibility": "visible",
+        "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porttitor ex orci, ut scelerisque lorem interdum sed. Integer vestibulum sed dui a sagittis.<\/p>\n",
+        "short_description": "<p>Lorem Ipsum<\/p>\n",
+        "sku": "",
+        "price": "7.99",
+        "regular_price": "7.99",
+        "sale_price": "",
+        "date_on_sale_from": null,
+        "date_on_sale_from_gmt": null,
+        "date_on_sale_to": null,
+        "date_on_sale_to_gmt": null,
+        "on_sale": false,
+        "purchasable": true,
+        "total_sales": 0,
+        "virtual": false,
+        "downloadable": false,
+        "downloads": [],
+        "download_limit": -1,
+        "download_expiry": -1,
+        "external_url": "",
+        "button_text": "",
+        "tax_status": "taxable",
+        "tax_class": "",
+        "manage_stock": false,
+        "stock_quantity": null,
+        "backorders": "no",
+        "backorders_allowed": false,
+        "backordered": false,
+        "low_stock_amount": null,
+        "sold_individually": false,
+        "weight": "",
+        "dimensions": {
+            "length": "",
+            "width": "",
+            "height": ""
+        },
+        "shipping_required": true,
+        "shipping_taxable": true,
+        "shipping_class": "",
+        "shipping_class_id": 0,
+        "reviews_allowed": true,
+        "average_rating": "0.00",
+        "rating_count": 0,
+        "upsell_ids": [],
+        "cross_sell_ids": [],
+        "parent_id": 0,
+        "purchase_note": "",
+        "categories": [
+            {
+                "id": 15,
+                "name": "Uncategorized",
+                "slug": "uncategorized"
+            }
+        ],
+        "tags": [],
+        "images": [
+            {
+                "id": 58,
+                "date_created": "2021-06-28T00:15:34",
+                "date_created_gmt": "2021-06-28T00:15:34",
+                "date_modified": "2021-06-28T00:15:34",
+                "date_modified_gmt": "2021-06-28T00:15:34",
+                "src": "http:\/\/localhost:8000\/wp-content\/uploads\/2021\/06\/Ondergaande-zon.jpg",
+                "name": "Ondergaande zon",
+                "alt": ""
+            }
+        ],
+        "attributes": [],
+        "default_attributes": [],
+        "variations": [],
+        "grouped_products": [],
+        "menu_order": 0,
+        "price_html": "<span class=\"woocommerce-Price-amount amount\"><bdi><span class=\"woocommerce-Price-currencySymbol\">&euro;<\/span>7,99<\/bdi><\/span>",
+        "related_ids": [
+            55,
+            61,
+            59,
+            53
+        ],
+        "meta_data": [],
+        "stock_status": "instock",
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/localhost:8000\/wp-json\/wc\/v3\/products\/57"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/localhost:8000\/wp-json\/wc\/v3\/products"
+                }
+            ]
+        }
+    },
+    {
+        "id": 55,
+        "name": "Lewis, Beverly - Het zakhorloge",
+        "slug": "lewis-beverly-het-zakhorloge",
+        "permalink": "http:\/\/localhost:8000\/shop\/uncategorized\/lewis-beverly-het-zakhorloge\/",
+        "date_created": "2021-06-28T00:13:28",
+        "date_created_gmt": "2021-06-28T00:13:28",
+        "date_modified": "2021-07-11T19:31:50",
+        "date_modified_gmt": "2021-07-11T19:31:50",
+        "type": "simple",
+        "status": "publish",
+        "featured": true,
+        "catalog_visibility": "visible",
+        "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porttitor ex orci, ut scelerisque lorem interdum sed. Integer vestibulum sed dui a sagittis.<\/p>\n",
+        "short_description": "<p>Lorem ipsum<\/p>\n",
+        "sku": "",
+        "price": "14.99",
+        "regular_price": "14.99",
+        "sale_price": "",
+        "date_on_sale_from": null,
+        "date_on_sale_from_gmt": null,
+        "date_on_sale_to": null,
+        "date_on_sale_to_gmt": null,
+        "on_sale": false,
+        "purchasable": true,
+        "total_sales": 0,
+        "virtual": false,
+        "downloadable": false,
+        "downloads": [],
+        "download_limit": -1,
+        "download_expiry": -1,
+        "external_url": "",
+        "button_text": "",
+        "tax_status": "taxable",
+        "tax_class": "",
+        "manage_stock": false,
+        "stock_quantity": null,
+        "backorders": "no",
+        "backorders_allowed": false,
+        "backordered": false,
+        "low_stock_amount": null,
+        "sold_individually": false,
+        "weight": "",
+        "dimensions": {
+            "length": "",
+            "width": "",
+            "height": ""
+        },
+        "shipping_required": true,
+        "shipping_taxable": true,
+        "shipping_class": "",
+        "shipping_class_id": 0,
+        "reviews_allowed": true,
+        "average_rating": "0.00",
+        "rating_count": 0,
+        "upsell_ids": [],
+        "cross_sell_ids": [],
+        "parent_id": 0,
+        "purchase_note": "",
+        "categories": [
+            {
+                "id": 15,
+                "name": "Uncategorized",
+                "slug": "uncategorized"
+            }
+        ],
+        "tags": [],
+        "images": [
+            {
+                "id": 56,
+                "date_created": "2021-06-28T00:13:14",
+                "date_created_gmt": "2021-06-28T00:13:14",
+                "date_modified": "2021-06-28T00:13:14",
+                "date_modified_gmt": "2021-06-28T00:13:14",
+                "src": "http:\/\/localhost:8000\/wp-content\/uploads\/2021\/06\/Het-zakhorloge.jpg",
+                "name": "Het zakhorloge",
+                "alt": ""
+            }
+        ],
+        "attributes": [],
+        "default_attributes": [],
+        "variations": [],
+        "grouped_products": [],
+        "menu_order": 0,
+        "price_html": "<span class=\"woocommerce-Price-amount amount\"><bdi><span class=\"woocommerce-Price-currencySymbol\">&euro;<\/span>14,99<\/bdi><\/span>",
+        "related_ids": [
+            61,
+            57,
+            59,
+            53
+        ],
+        "meta_data": [],
+        "stock_status": "instock",
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/localhost:8000\/wp-json\/wc\/v3\/products\/55"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/localhost:8000\/wp-json\/wc\/v3\/products"
+                }
+            ]
+        }
+    },
+    {
+        "id": 53,
+        "name": "De droom van de bibliothecaresse",
+        "slug": "de-droom-van-de-bibliothecaresse",
+        "permalink": "http:\/\/localhost:8000\/shop\/uncategorized\/de-droom-van-de-bibliothecaresse\/",
+        "date_created": "2021-06-28T00:03:24",
+        "date_created_gmt": "2021-06-28T00:03:24",
+        "date_modified": "2021-07-11T19:32:08",
+        "date_modified_gmt": "2021-07-11T19:32:08",
+        "type": "simple",
+        "status": "publish",
+        "featured": true,
+        "catalog_visibility": "visible",
+        "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porttitor ex orci, ut scelerisque lorem interdum sed. Integer vestibulum sed dui a sagittis.<\/p>\n",
+        "short_description": "<p>Lorem ipsum<\/p>\n",
+        "sku": "",
+        "price": "5.99",
+        "regular_price": "5.99",
+        "sale_price": "",
+        "date_on_sale_from": null,
+        "date_on_sale_from_gmt": null,
+        "date_on_sale_to": null,
+        "date_on_sale_to_gmt": null,
+        "on_sale": false,
+        "purchasable": true,
+        "total_sales": 0,
+        "virtual": false,
+        "downloadable": false,
+        "downloads": [],
+        "download_limit": -1,
+        "download_expiry": -1,
+        "external_url": "",
+        "button_text": "",
+        "tax_status": "taxable",
+        "tax_class": "",
+        "manage_stock": false,
+        "stock_quantity": null,
+        "backorders": "no",
+        "backorders_allowed": false,
+        "backordered": false,
+        "low_stock_amount": null,
+        "sold_individually": false,
+        "weight": "",
+        "dimensions": {
+            "length": "",
+            "width": "",
+            "height": ""
+        },
+        "shipping_required": true,
+        "shipping_taxable": true,
+        "shipping_class": "",
+        "shipping_class_id": 0,
+        "reviews_allowed": true,
+        "average_rating": "0.00",
+        "rating_count": 0,
+        "upsell_ids": [],
+        "cross_sell_ids": [],
+        "parent_id": 0,
+        "purchase_note": "",
+        "categories": [
+            {
+                "id": 15,
+                "name": "Uncategorized",
+                "slug": "uncategorized"
+            }
+        ],
+        "tags": [],
+        "images": [
+            {
+                "id": 54,
+                "date_created": "2021-06-28T00:03:07",
+                "date_created_gmt": "2021-06-28T00:03:07",
+                "date_modified": "2021-06-28T00:03:07",
+                "date_modified_gmt": "2021-06-28T00:03:07",
+                "src": "http:\/\/localhost:8000\/wp-content\/uploads\/2021\/06\/De-droom-van-de-bibliothecaresse.jpg",
+                "name": "De droom van de bibliothecaresse",
+                "alt": ""
+            }
+        ],
+        "attributes": [],
+        "default_attributes": [],
+        "variations": [],
+        "grouped_products": [],
+        "menu_order": 0,
+        "price_html": "<span class=\"woocommerce-Price-amount amount\"><bdi><span class=\"woocommerce-Price-currencySymbol\">&euro;<\/span>5,99<\/bdi><\/span>",
+        "related_ids": [
+            59,
+            61,
+            57,
+            55
+        ],
+        "meta_data": [
+            {
+                "id": 108,
+                "key": "_wp_old_date",
+                "value": "2021-06-27"
+            }
+        ],
+        "stock_status": "instock",
+        "_links": {
+            "self": [
+                {
+                    "href": "http:\/\/localhost:8000\/wp-json\/wc\/v3\/products\/53"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "http:\/\/localhost:8000\/wp-json\/wc\/v3\/products"
+                }
+            ]
+        }
+    }
+]

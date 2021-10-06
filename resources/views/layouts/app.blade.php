@@ -38,5 +38,8 @@
 
         @include('partials.footer')
         @php wp_footer() @endphp
+        @if(is_shop())
+            <script src='/shop.js'></script>
+        @endif
     </body>
 </html>

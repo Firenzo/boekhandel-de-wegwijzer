@@ -18,7 +18,7 @@
         		<li class="about"><a href="/over-ons">Over Ons</a></li>
         		<li class="news"><a href="/nieuws">Nieuws</a></li>
         		<li class="contact"><a href="/contact">Contact</a></li>
-        		<li class="shopping-cart"><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+        		<li class="shopping-cart"><a href="<?php echo wc_get_cart_url() ?>"><i class="fas fa-shopping-cart"></i></a></li>
         	</ul>
         </nav>
 
@@ -28,10 +28,10 @@
         	<section class="shop-links">
         		<h1>Categorieën:</h1>
 	    		<ul>
-		        	<li><a href="#"><i class="fas fa-book"></i> Boeken</a></li>
-		    		<li><a href="#"><i class="fas fa-gift"></i> Cadeau's</a></li>
-		    		<li class="last-item"><a href="#"><i class="fas fa-bible"></i> Bijbels</a></li>
-		    		<li class="shopping-cart"><a href="/contact"><i class="fas fa-shopping-cart"></i> Winkelwagen</a></li>
+		        	<li><a href="<?php echo get_term_link('boeken', 'product_cat') ?>"><i class="fas fa-book"></i> Boeken</a></li>
+		    		<li><a href="<?php echo get_term_link('cadeaus', 'product_cat') ?>"><i class="fas fa-gift"></i> Cadeau's</a></li>
+		    		<li class="last-item"><a href="<?php echo get_term_link('bijbels', 'product_cat') ?>"><i class="fas fa-bible"></i> Bijbels</a></li>
+		    		<li class="shopping-cart"><a href="<?php echo wc_get_cart_url() ?>"><i class="fas fa-shopping-cart"></i> Winkelwagen</a></li>
 	    		</ul>
         	</section>
         	<section class="main-links">
