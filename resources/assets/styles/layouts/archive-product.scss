@@ -46,7 +46,8 @@ div#shop-layout{
 		transition: left 0.4s ease;
 
 		@include min-1200 {
-			position:static;
+			position:sticky;
+			top:90px;
 			background:white;
 			border: 2px solid #ddd;
 			border-radius: 5px;
@@ -121,6 +122,7 @@ div#shop-layout{
 
 		@include min-1200 {
 			flex-basis: calc(100% - 350px - 30px);
+			width: calc(100% - 350px - 30px);
 			transform:translateY(-7px);
 		}
 
@@ -128,31 +130,225 @@ div#shop-layout{
 			max-width:750px;
 		}
 
-		div.filterOptions{
-			button.show-filter-options{
-			    padding: 10px 25px;
-			    font-weight: 400;
-			    box-shadow: none;
-			    background: white;
-			    color:#333;
-			    border:2px solid black;
-			    transition: background 0.4s ease, color 0.4s ease, border 0.4s ease;
-			    margin-bottom:20px;
+		div.filter-and-sort{
+			display:flex;
+			flex-wrap:wrap;
+			justify-content:center;
+			margin-bottom:20px;
 
-			    &:hover{
-			    	background:$main-color;
-			    	color:white;
-			    	border:2px solid black;
-			    }
+			@include min-400{
+				justify-content: space-between;
+			}
 
-			    &:focus{
-			    	outline:none;
-			    	border:2px solid black;
-			    }
+			div.filterOptions{
+				flex-basis:100%;
 
-			    svg{
-			    	font-size:16px;
-			    }
+				@include min-400{
+					flex-basis:auto;
+				}
+
+				button.show-filter-options{
+				    padding: 10px 25px;
+				    font-weight: 400;
+				    box-shadow: none;
+				    background: white;
+				    color:#333;
+				    border:2px solid black;
+				    transition: background 0.4s ease, color 0.4s ease, border 0.4s ease;
+				    display:block;
+				    margin:auto;
+				    margin-bottom:20px;
+
+				   	&.hide{
+				   		display:none;
+				   	}
+
+				    &:hover{
+				    	background:$main-color;
+				    	color:white;
+				    	border:2px solid black;
+				    }
+
+				    &:focus{
+				    	outline:none;
+				    	border:2px solid black;
+				    }
+
+				    svg{
+				    	font-size:16px;
+				    }
+				}
+			}
+
+			div.sortOptions{
+				@include min-1200{
+					order: -1;
+				}
+
+				form{
+					select{
+						height:50px;
+						border-radius:5px;
+						padding:0 10px;
+						border: 2px solid black;
+					}
+				}
+			}
+		}
+
+		div.product-list{
+			margin-bottom:200px;
+
+			ul.products{
+				list-style:none;
+				display:flex;
+				flex-flow: column nowrap;
+
+				@include min-400{
+					flex-flow: row wrap;
+					justify-content: flex-start;
+				}
+
+				li.product{
+					margin:auto;
+					margin-bottom:20px;
+
+					@include min-400{
+						margin:0;
+						margin-bottom:20px;
+						width: calc(100% / 2 - 10px);
+					}
+
+					@include min-550{
+						width: calc(100% / 3 - 20px);
+					}
+
+					@include min-800{
+						width: calc(100% / 4 - 30px);
+					}
+
+					@include min-1100{
+						width: calc(100% / 5 - 40px);
+					}
+
+					@include min-1200{
+						width: calc(100% / 3 - 20px);
+					}
+
+					@include min-1300{
+						width: calc(100% / 4 - 30px);
+					}
+
+					@include min-1550{
+						width: calc(100% / 5 - 40px);
+					}
+
+					@include min-400-max-549{
+						&:nth-of-type(odd){
+							margin-right: calc(100% - ((100% / 2 - 10px) * 2));
+						}
+					}
+
+					@include min-550-max-799{
+						&:not(:nth-of-type(3n)){
+							margin-right: calc(100% - ((100% / 3 - 10px) * 3));
+						}
+					}
+
+					@include min-800-max-1099{
+						&:not(:nth-of-type(4n)){
+							margin-right: calc(100% - ((100% / 4 - 10px) * 4));
+						}
+					}
+
+					@include min-1100-max-1199{
+						&:not(:nth-of-type(5n)){
+							margin-right: calc(100% - ((100% / 5 - 10px) * 5));
+						}
+					}
+
+					// From here on the layout has changed
+
+					@include min-1200-max-1299{
+						&:not(:nth-of-type(3n)){
+							margin-right: calc(100% - ((100% / 3 - 10px) * 3));
+						}
+					}
+
+					@include min-1300-max-1549{
+						&:not(:nth-of-type(4n)){
+							margin-right: calc(100% - ((100% / 4 - 10px) * 4));
+						}
+					}
+
+					@include min-1550{
+						&:not(:nth-of-type(5n)){
+							margin-right: calc(100% - ((100% / 5 - 10px) * 5));
+						}
+					}
+
+					div.product-link{
+		                margin-bottom:20px;
+		                a {
+		                    width: 100%;
+		                    display: block;
+
+		                    // @include min-1400{
+		                    //     width:212px;
+		                    // }
+
+		                    h2{
+		                        text-decoration:none;
+		                        color: $main-color;
+		                        font-family: "Poppins", sans-serif;
+		                        font-size:16px;
+		                        height:30px;
+		                        margin-top:10px;
+		                        margin-bottom:25px;
+		                        font-weight: 600;
+		                        display:flex;
+		                        align-items: center;
+		                        justify-self: center;
+
+		                        &:hover{
+		                            text-decoration:underline;
+		                            text-decoration-color: $main-color;
+		                        }
+		                    }
+		                    img{
+		                        width:100%;
+		                        display:block;
+		                        margin:auto;
+		                        border-radius:5px;
+
+		                        // @include min-1400{
+		                        //     width:212px;
+		                        // }
+		                    }
+		                }
+		            }
+
+		            div.product-price-and-add-to-cart-button{
+		                display:flex;
+
+		                div.price{
+		                    flex-basis:calc(100% - 55px);
+
+		                    p{
+		                        font-size: 20px;
+		                        font-family: "Poppins", sans-serif;
+		                        font-weight: 600;
+		                    }
+		                }
+		                div.add-to-cart-button{
+		                    flex-basis:55px;
+		                    a{
+		                        background: #1C46B0;
+		                        padding:16px 17px;
+		                    }
+		                }
+		            }
+				}
 			}
 		}
 	}

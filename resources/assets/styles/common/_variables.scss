@@ -15,25 +15,40 @@ $footer-background-color: #1C1C1C;
 //Breakpoints
 @mixin min-335 {@media screen and (min-width: 335px){@content;}}
 @mixin min-375 {@media screen and (min-width: 375px){@content;}}
+@mixin min-400 {@media screen and (min-width: 400px){@content;}}
 @mixin min-450 {@media screen and (min-width: 450px){@content;}}
 @mixin min-500 {@media screen and (min-width: 500px){@content;}}
+@mixin min-550 {@media screen and (min-width: 550px){@content;}}
 @mixin min-600 {@media screen and (min-width: 600px){@content;}}
 @mixin min-601 {@media screen and (min-width: 601px){@content;}} //for wp-admin bar tablet size
+@mixin min-650 {@media screen and (min-width: 650px){@content;}}
 @mixin min-768 {@media screen and (min-width: 768px){@content;}}
 @mixin min-782 {@media screen and (min-width: 782px){@content;}} // wordpress breakpoint
 @mixin min-783 {@media screen and (min-width: 783px){@content;}} // for wp-admin bar
+@mixin min-800 {@media screen and (min-width: 800px){@content;}}
 @mixin min-834 {@media screen and (min-width: 834px){@content;}}
 @mixin min-850 {@media screen and (min-width: 850px){@content;}}
 @mixin min-1024 {@media screen and (min-width: 1024px){@content;}}
+@mixin min-1100 {@media screen and (min-width: 1100px){@content;}}
 @mixin min-1110 {@media screen and (min-width: 1110px){@content;}}
 @mixin min-1120 {@media screen and (min-width: 1120px){@content;}}
 @mixin min-1200 {@media screen and (min-width: 1200px){@content;}}
+@mixin min-1250 {@media screen and (min-width: 1250px){@content;}}
 @mixin min-1251 {@media screen and (min-width: 1251px){@content;}}
 @mixin min-1300 {@media screen and (min-width: 1300px){@content;}}
 @mixin min-1350 {@media screen and (min-width: 1350px){@content;}}
 @mixin min-1378 {@media screen and (min-width: 1378px){@content;}}
 @mixin min-1400 {@media screen and (min-width: 1400px){@content;}}
 @mixin min-1500 {@media screen and (min-width: 1500px){@content;}}
+@mixin min-1550 {@media screen and (min-width: 1550px){@content;}}
 @mixin min-1689 {@media screen and (min-width: 1689px){@content;}} // Max-width:1520px is reached
 @mixin min-1900 {@media screen and (min-width: 1900px){@content;}}
 @mixin min-2176 {@media screen and (min-width: 2176px){@content;}}
+
+
+@mixin min-400-max-549 {@media screen and (min-width: 400px) and (max-width: 549px){@content;}}
+@mixin min-550-max-799 {@media screen and (min-width: 550px) and (max-width: 799px){@content;}}
+@mixin min-800-max-1099 {@media screen and (min-width: 800px) and (max-width: 1099px){@content;}}
+@mixin min-1100-max-1199 {@media screen and (min-width: 1100px) and (max-width: 1199px){@content;}}
+@mixin min-1200-max-1299 {@media screen and (min-width: 1200px) and (max-width: 1299px){@content;}}
+@mixin min-1300-max-1549 {@media screen and (min-width: 1300px) and (max-width: 1549px){@content;}}

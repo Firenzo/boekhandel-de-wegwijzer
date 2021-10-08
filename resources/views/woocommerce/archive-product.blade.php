@@ -14,6 +14,8 @@ the readme will list any important changes.
 @version 3.4.0
 --}}
 
+{{-- @query(['posts_per_page' => '1']) --}}
+
 @extends('layouts.app')
 @section('content')
 <?php woocommerce_breadcrumb(); ?>
@@ -83,11 +85,7 @@ the readme will list any important changes.
     </form>
   </section>
   <section class="product-archive">
-    
-  
   @php
-    // do_action('get_header', 'shop');
-    // do_action('woocommerce_before_main_content');
     $term_object = get_queried_object();
   @endphp
 
@@ -95,60 +93,128 @@ the readme will list any important changes.
     <h1><?php echo $term_object->name; ?></h1>
     <p class="category-description"><?php echo $term_object->description; ?></p>
   @endif
+  <div class="filter-and-sort">
+    <div class="filterOptions">
+      <button class="show-filter-options"><i class="fas fa-sliders-h"></i> Filter</button>
+    </div>
 
-  <div class="filterOptions">
-    <button class="show-filter-options"><i class="fas fa-sliders-h"></i> Filter</button>
+    <div class="sortOptions">
+      <form class="woocommerce-ordering" method="get">
+        <select name="orderby" class="orderby" aria-label="Shop order">
+          <option value="menu_order" selected="selected">Standaard sortering</option>
+          <option value="popularity">Sorteer op populariteit</option>
+          {{-- <option value="rating">Sort by average rating</option> --}}
+          {{-- <option value="date">Sort by latest</option> --}}
+          <option value="price">Prijs: Laag - hoog</option>
+          <option value="price-desc">Prijs: Hoog - laag</option>
+        </select>
+        <input type="hidden" name="paged" value="1">
+      </form>
+    </div>
   </div>
 
-  <div class="sortOptions">
-    <form class="woocommerce-ordering" method="get">
-      <select name="orderby" class="orderby" aria-label="Shop order">
-        <option value="menu_order" selected="selected">Standaard sortering</option>
-        <option value="popularity">Sorteer op populariteit</option>
-        {{-- <option value="rating">Sort by average rating</option> --}}
-        {{-- <option value="date">Sort by latest</option> --}}
-        <option value="price">Prijs: Laag - hoog</option>
-        <option value="price-desc">Prijs: Hoog - laag</option>
-      </select>
-      <input type="hidden" name="paged" value="1">
-    </form>
-  </div>
+  <div class="product-list">
+    @if(woocommerce_product_loop())
+      @if(wc_get_loop_prop('total'))
+        <ul class="products">
+          @posts
+            <li class="product">
+              <div class="product-link">
+                <a href="@permalink">
+                  <img src=@thumbnail('full', false) />
+                  <h2>@title</h2>
+                </a>
+              </div>
+              <div class="product-price-and-add-to-cart-button">
+                <div class="price"><p>€ <?php echo wc_get_product()->get_price(); ?></p></div>
+                <div class="add-to-cart-button">
+                  <a class="button" href="<?php $add_to_cart = do_shortcode('[add_to_cart_url id="'.$post->ID.'"]'); echo $add_to_cart; ?>" class="more"><i class="fas fa-shopping-cart"></i>
+                  </a>
+                </div>
+              </div>
+            </li>
+          @endposts
+        </ul>
+      @endif
+      @php
+        global $wp_query;
+          $number_of_pages = $wp_query->max_num_pages;
+          $currentPage = (get_query_var('paged')) ? get_query_var('paged') : 1;
+          // $currentPage = 150;
+          $prevPage = $currentPage - 1;
+          $nextPage = $currentPage + 1;
+      @endphp
+      <nav class="pagination">
+        <ul>
+          @if($currentPage != 1)
+            @php
+              echo "<li class='prevButton'><a class='button' href='/nieuws/page/$prevPage'>Vorige</a></li>"
+            @endphp
+          @endif
+          @php
+          function renderListItems($begin, $end, $page) {
+            for ($x = $begin; $x <= $end; $x++) {
+              if ($x == $page) {
+                echo "<li class='currentPage'><a class='button' href='/nieuws/page/$x'>$x</a></li>";
+              } else {
+                echo "<li><a class='button' href='/nieuws/page/$x'>$x</a></li>";
+              };
+            };
+          };
 
-  {{-- <header class="woocommerce-products-header">
-    @if(apply_filters('woocommerce_show_page_title', true))
-      <h1 class="woocommerce-products-header__title page-title">{!! woocommerce_page_title(false) !!}</h1>
-    @endif
+          if ($number_of_pages <= 10) {
+            renderListItems(1, $number_of_pages, $currentPage);
+          } else if ($number_of_pages > 10) {
 
-    @php
-      do_action('woocommerce_archive_description');
-    @endphp
-  </header> --}}
+            if ($currentPage >= 6 && $number_of_pages - $currentPage < 6) {
+              // add dots to begin of list;
+              if ($number_of_pages - $currentPage <= 2) {
+                $renderFrom = $currentPage - 4 - (3 + $currentPage - $number_of_pages);
+                echo "<li><a class='button' href='/nieuws/page/1'>1</a></li>";
+                echo "<li><span>. . .</span></li>";
+                renderListItems($renderFrom, $number_of_pages, $currentPage);
+              } else {
+                echo "<li><a class='button' href='/nieuws/page/1'>1</a></li>";
+                echo "<li><span>. . .</span></li>";
+                renderListItems($currentPage - 4, $number_of_pages, $currentPage);
+              }
+            } else if ($currentPage < 6 && $number_of_pages - $currentPage >= 6) {
+              // add dots to end of list;
+              renderListItems(1, 8, $currentPage);
+              echo "<li><span>. . .</span></li>";
+              echo "<li><a class='button' href='/nieuws/page/$number_of_pages'>$number_of_pages</a></li>";
 
-  @if(woocommerce_product_loop())
-    @php
-      do_action('woocommerce_before_shop_loop');
-      woocommerce_product_loop_start();
-    @endphp
-
-    @if(wc_get_loop_prop('total'))
-      @while(have_posts())
+            } else if ($currentPage >= 6 && $number_of_pages - $currentPage >= 6) {
+              // add dots to begin and end of list;
+              echo "<li><a class='button' href='/nieuws/page/1'>1</a></li>";
+              echo "<li><span>. . .</span></li>";
+              renderListItems($currentPage - 2, $currentPage + 3 , $currentPage);
+              echo "<li><span>. . .</span></li>";
+              echo "<li><a class='button' href='/nieuws/page/$number_of_pages'>$number_of_pages</a></li>";
+            }
+          }
+          @endphp
+          @if($currentPage != $number_of_pages)
+            @php
+              echo "<li class='nextButton'><a class='button' href='/nieuws/page/$nextPage'>Volgende</a></li>"
+            @endphp
+          @endif
+          
+        </ul>
         @php
-          the_post();
-          do_action('woocommerce_shop_loop');
-          wc_get_template_part('content', 'product');
+          echo "<p>Pagina $currentPage van $number_of_pages</p>"
         @endphp
-      @endwhile
+      </nav>
+      @php
+        woocommerce_product_loop_end();
+        // do_action('woocommerce_after_shop_loop');
+      @endphp
+    @else
+      @php
+        do_action('woocommerce_no_products_found');
+      @endphp
     @endif
-
-    @php
-      woocommerce_product_loop_end();
-      do_action('woocommerce_after_shop_loop');
-    @endphp
-  @else
-    @php
-      do_action('woocommerce_no_products_found');
-    @endphp
-  @endif
+  </div>
 
   @php
     do_action('woocommerce_after_main_content');
@@ -158,4 +224,3 @@ the readme will list any important changes.
   </section>
 </div>
 @endsection
-

@@ -8,6 +8,8 @@ export default {
         const menuList = document.querySelector('header.secondary nav.mobile');
         const closeMenuButton = document.querySelector('header.secondary nav.mobile button');
 
+        let clicksRegistered = 0; // for category page
+
         const setMenuButton = () => {
             if (window.innerWidth >= 834 ) {
                 mobileMenuButton.innerHTML = 'Kies categorie <i class="fas fa-chevron-down"></i>';
@@ -18,6 +20,16 @@ export default {
 
             if (window.innerWidth >= 1024) {
                 secondaryHeader.classList.remove('hideHeader');
+            }
+
+            if (window.location.pathname.includes('/categorie/') && window.innerWidth < 1200) {
+                document.querySelector('button.show-filter-options').classList.remove('hide')
+            }
+
+            if (window.location.pathname.includes('/categorie/') && window.innerWidth >= 1200) {
+                document.querySelector('button.show-filter-options').classList.add('hide')
+                document.querySelector('section.product-archive-filter').classList.remove('show')
+                clicksRegistered = 0;
             }
         }
 
@@ -151,7 +163,6 @@ export default {
         if(window.location.pathname.includes('/categorie/')) {
             const filterButton = document.querySelector('button.show-filter-options');
             const filterOptions = document.querySelector('section.product-archive-filter');
-            let clicksRegistered = 0;
 
             const openFilter = () => {
                 document.querySelector('html').addEventListener('click', checkforClicksOutsideOfFilter)
@@ -183,7 +194,13 @@ export default {
                 }
             }
 
-            filterButton.addEventListener('click', checkFilter)
+            filterButton.addEventListener('click', checkFilter);
+            // window.addEventListener('resize', setMenuButton)
+            // mobileMenuButton.addEventListener('click', checkMenu);
+            // closeMenuButton.addEventListener('click', checkMenu);
+            // footerCopyrightBox.innerHTML =  `&copy; Boekhandel De Wegwijzer ${new Date().getFullYear()}`
+            // setMenuButton();
+
         }
     },
     finalize() {
