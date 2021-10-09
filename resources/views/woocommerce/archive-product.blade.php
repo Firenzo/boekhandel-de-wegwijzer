@@ -16,6 +16,22 @@ the readme will list any important changes.
 
 {{-- @query(['posts_per_page' => '1']) --}}
 
+@php
+  if ( is_product_category() ) {
+    $term_object = get_queried_object();
+    $categoryName = $term_object->name;
+    $term_id  = get_queried_object_id();
+    $taxonomy = 'product_cat';
+
+    // Get subcategories of the current category
+    $terms = get_terms([
+        'taxonomy'    => $taxonomy,
+        'hide_empty'  => false,
+        'parent'      => get_queried_object_id()
+    ]);
+  }
+@endphp
+
 @extends('layouts.app')
 @section('content')
 <?php woocommerce_breadcrumb(); ?>
@@ -25,26 +41,21 @@ the readme will list any important changes.
     <form action="">
       <fieldset class="filter-list subcategories-filter">
         <h2>Genres</h2>
+        @php
+          if ( is_product_category() ) {
 
-        <div class="checkbox-and-label">
-          <input type="checkbox" name="kinderboeken" id="kinderboeken">
-          <label for="kinderboeken">Kinderboeken</label>
-        </div>
-
-        <div class="checkbox-and-label">
-          <input type="checkbox" name="klassiek" id="klassiek">
-          <label for="klassiek">Klassiek</label>
-        </div>
-
-        <div class="checkbox-and-label">
-          <input type="checkbox" name="roman" id="roman">
-          <label for="roman">Roman</label>
-        </div>
-
-        <div class="checkbox-and-label">
-          <input type="checkbox" name="informatief" id="informatief">
-          <label for="informatief">Informatief</label>
-        </div>
+            // Loop through product subcategories WP_Term Objects
+            foreach ( $terms as $term ) {
+              $term_link = get_term_link( $term, $taxonomy );
+              echo '
+                <div class="checkbox-and-label">
+                  <input type="checkbox" name="'. $term->slug .'" id="'. $term->slug .'">
+                  <label for="'. $term->slug .'">'. $term->name .'</label>
+                </div>
+              ';
+            }
+          }
+        @endphp
       </fieldset>
 
       <fieldset class="filter-list language-filter">
@@ -69,7 +80,8 @@ the readme will list any important changes.
           <div class="price-input">
             <div class="euro-sign-before-input-field">€</div>
             <input type="text" name="minumum-price">
-          </div>  
+          </div>
+          <p class="price-filter-error-text min-price">Vul een minimum prijs in.</p>
         </div>
 
         <div class="label-and-input">
@@ -77,20 +89,19 @@ the readme will list any important changes.
           <div class="price-input">
             <div class="euro-sign-before-input-field">€</div>
             <input type="text" name="maximum-price">
-          </div>  
+          </div>
+          <p class="price-filter-error-text max-price">Vul een maximum prijs in.</p>
+          <p class="price-filter-error-text no-match">Maximum prijs moet hoger zijn dan minimum prijs.</p>
         </div>
 
       </fieldset>
-      <button type="submit">Filters Toepassen</button>
+      <button type="submit" class="apply-filter-button">Filters Toepassen</button>
     </form>
   </section>
   <section class="product-archive">
-  @php
-    $term_object = get_queried_object();
-  @endphp
 
   @if( is_product_category() )
-    <h1><?php echo $term_object->name; ?></h1>
+    <h1><?php echo $categoryName ?></h1>
     <p class="category-description"><?php echo $term_object->description; ?></p>
   @endif
   <div class="filter-and-sort">

@@ -83,6 +83,16 @@ div#shop-layout{
 
 			fieldset.price-filter{
 				div.label-and-input{
+					p.price-filter-error-text{
+						margin-top:8px;
+						margin-bottom:0;
+						color:red;
+						display:none;
+
+						&.show{
+							display:inline-block;
+						}
+					}
 					div.price-input{
 						display:flex;
 
@@ -99,6 +109,7 @@ div#shop-layout{
 
 						input[type="text"]{
 							border-radius: 0 5px 5px 0;
+							width:calc(100% - 50px);
 						}
 					}
 				}

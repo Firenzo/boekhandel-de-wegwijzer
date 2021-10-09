@@ -160,9 +160,22 @@ export default {
 
         //Code for Product Archive page
 
-        if(window.location.pathname.includes('/categorie/')) {
+        if(window.location.pathname.includes('/categorie/') || window.location.pathname.includes('/shop')) {
             const filterButton = document.querySelector('button.show-filter-options');
             const filterOptions = document.querySelector('section.product-archive-filter');
+            const applyFilterButton = document.querySelector('button.apply-filter-button');
+            const subCategories = document.querySelectorAll('fieldset.subcategories-filter>div.checkbox-and-label>input[type=\"checkbox\"]');
+            const minimumPriceFilter = document.querySelector('fieldset.price-filter input[name=\"minumum-price\"]');
+            const maximumPriceFilter = document.querySelector('fieldset.price-filter input[name=\"maximum-price\"]');
+            const filterErrors = {maxPrice: false, minPrice: false, noMatch: false};
+            const errorMessages = {
+                maxPrice: document.querySelector('fieldset.price-filter p.price-filter-error-text.max-price'),
+                minPrice: document.querySelector('fieldset.price-filter p.price-filter-error-text.min-price'),
+                noMatch: document.querySelector('fieldset.price-filter p.price-filter-error-text.no-match'),
+            }
+            const sortOptions = document.querySelector('select.orderby');
+            let searchQuery = '';
+            let searchQueryObject = {};
 
             const openFilter = () => {
                 document.querySelector('html').addEventListener('click', checkforClicksOutsideOfFilter)
@@ -194,12 +207,68 @@ export default {
                 }
             }
 
+            const applyFilters = (event) => {
+                event.preventDefault();
+                console.log(subCategories);
+
+                for (let i=0; i<subCategories.length; i++) {
+                    if (subCategories[i].checked) {
+                        console.log(subCategories[i].name, subCategories[i].checked);
+                        searchQueryObject[subCategories[i].name] = subCategories[i].value;
+                    }
+                }
+
+                //Price filter error check
+                if (!!maximumPriceFilter.value || !!minimumPriceFilter.value) {
+                    filterErrors.noMatch = false
+                    errorMessages.noMatch.classList.remove('show');
+                    !!maximumPriceFilter.value ? filterErrors.maxPrice = false : filterErrors.maxPrice = true;
+                    !!minimumPriceFilter.value ? filterErrors.minPrice = false : filterErrors.minPrice = true;
+                    !!filterErrors.minPrice ? errorMessages.minPrice.classList.add('show') : errorMessages.minPrice.classList.remove('show');
+                    !!filterErrors.maxPrice ? errorMessages.maxPrice.classList.add('show') : errorMessages.maxPrice.classList.remove('show');
+                }
+
+                if (!maximumPriceFilter.value && !minimumPriceFilter.value) {
+                    filterErrors.minPrice = false;
+                    filterErrors.maxPrice = false;
+                    errorMessages.minPrice.classList.remove('show');
+                    errorMessages.maxPrice.classList.remove('show');
+                }
+
+                if (!!maximumPriceFilter.value && !!minimumPriceFilter.value) {
+                    parseInt(minimumPriceFilter.value) < parseInt(maximumPriceFilter.value) ? filterErrors.noMatch = false : filterErrors.noMatch = true;
+                    !!filterErrors.noMatch ? errorMessages.noMatch.classList.add('show') : errorMessages.noMatch.classList.remove('show');
+                }
+
+
+
+                console.log(filterErrors);
+                console.log(searchQueryObject);
+            } 
+
+            if (window.location.search === '') {
+                console.log('no query')
+            } else {
+                searchQuery = window.location.search.substring(1);
+                searchQueryObject = JSON.parse('{\"' + searchQuery.replace(/&/g, '\",\"').replace(/=/g,'\":\"') + '\"}', function(key, value) { return key==='' ? value:decodeURIComponent(value) });
+                console.log(searchQueryObject);
+
+                if (searchQueryObject.orderby) {
+                    sortOptions.value = searchQueryObject.orderby;
+                }
+
+                if (subCategories) {
+                    for (let i=0; i<subCategories.length; i++) {
+                        
+                        if (searchQueryObject[subCategories[i].name] === 'on') {
+                            subCategories[i].checked = true;
+                        }
+                    }
+                }
+            }
+
+            applyFilterButton.addEventListener('click', applyFilters);
             filterButton.addEventListener('click', checkFilter);
-            // window.addEventListener('resize', setMenuButton)
-            // mobileMenuButton.addEventListener('click', checkMenu);
-            // closeMenuButton.addEventListener('click', checkMenu);
-            // footerCopyrightBox.innerHTML =  `&copy; Boekhandel De Wegwijzer ${new Date().getFullYear()}`
-            // setMenuButton();
 
         }
     },
