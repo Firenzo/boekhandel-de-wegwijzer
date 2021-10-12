@@ -149,17 +149,23 @@ the readme will list any important changes.
       @endif
       @php
         global $wp_query;
-          $number_of_pages = $wp_query->max_num_pages;
-          $currentPage = (get_query_var('paged')) ? get_query_var('paged') : 1;
-          // $currentPage = 150;
-          $prevPage = $currentPage - 1;
-          $nextPage = $currentPage + 1;
-      @endphp
+        global $wp;
+
+        $number_of_pages = $wp_query->max_num_pages;
+        $currentPageNumber = (get_query_var('paged')) ? get_query_var('paged') : 1;
+        // $currentPage = 150;
+        $prevPageNumber = $currentPageNumber - 1;
+        $nextPageNumber = $currentPageNumber + 1;
+
+        $currentURL = home_url( $wp->request );
+        $baseURL = preg_replace("/\/page\/\d+/i", '', $currentURL);
+        echo $baseURL;
+    @endphp
       <nav class="pagination">
         <ul>
           @if($currentPage != 1)
             @php
-              echo "<li class='prevButton'><a class='button' href='/nieuws/page/$prevPage'>Vorige</a></li>"
+              echo "<li class='prevButton'><a class='button' href='$baseURL/page/$prevPageNumber'>Vorige</a></li>"
             @endphp
           @endif
           @php
@@ -174,46 +180,46 @@ the readme will list any important changes.
           };
 
           if ($number_of_pages <= 10) {
-            renderListItems(1, $number_of_pages, $currentPage);
+            renderListItems(1, $number_of_pages, $currentPageNumber);
           } else if ($number_of_pages > 10) {
 
-            if ($currentPage >= 6 && $number_of_pages - $currentPage < 6) {
+            if ($currentPageNumber >= 6 && $number_of_pages - $currentPageNumber < 6) {
               // add dots to begin of list;
-              if ($number_of_pages - $currentPage <= 2) {
-                $renderFrom = $currentPage - 4 - (3 + $currentPage - $number_of_pages);
+              if ($number_of_pages - $currentPageNumber <= 2) {
+                $renderFrom = $currentPageNumber - 4 - (3 + $currentPageNumber - $number_of_pages);
                 echo "<li><a class='button' href='/nieuws/page/1'>1</a></li>";
                 echo "<li><span>. . .</span></li>";
-                renderListItems($renderFrom, $number_of_pages, $currentPage);
+                renderListItems($renderFrom, $number_of_pages, $currentPageNumber);
               } else {
                 echo "<li><a class='button' href='/nieuws/page/1'>1</a></li>";
                 echo "<li><span>. . .</span></li>";
-                renderListItems($currentPage - 4, $number_of_pages, $currentPage);
+                renderListItems($currentPageNumber - 4, $number_of_pages, $currentPageNumber);
               }
-            } else if ($currentPage < 6 && $number_of_pages - $currentPage >= 6) {
+            } else if ($currentPageNumber < 6 && $number_of_pages - $currentPageNumber >= 6) {
               // add dots to end of list;
-              renderListItems(1, 8, $currentPage);
+              renderListItems(1, 8, $currentPageNumber);
               echo "<li><span>. . .</span></li>";
               echo "<li><a class='button' href='/nieuws/page/$number_of_pages'>$number_of_pages</a></li>";
 
-            } else if ($currentPage >= 6 && $number_of_pages - $currentPage >= 6) {
+            } else if ($currentPageNumber >= 6 && $number_of_pages - $currentPageNumber >= 6) {
               // add dots to begin and end of list;
               echo "<li><a class='button' href='/nieuws/page/1'>1</a></li>";
               echo "<li><span>. . .</span></li>";
-              renderListItems($currentPage - 2, $currentPage + 3 , $currentPage);
+              renderListItems($currentPageNumber - 2, $currentPageNumber + 3 , $currentPageNumber);
               echo "<li><span>. . .</span></li>";
               echo "<li><a class='button' href='/nieuws/page/$number_of_pages'>$number_of_pages</a></li>";
             }
           }
           @endphp
-          @if($currentPage != $number_of_pages)
+          @if($currentPageNumber != $number_of_pages)
             @php
-              echo "<li class='nextButton'><a class='button' href='/nieuws/page/$nextPage'>Volgende</a></li>"
+              echo "<li class='nextButton'><a class='button' href='$baseURL/page/$nextPageNumber'>Volgende</a></li>"
             @endphp
           @endif
           
         </ul>
         @php
-          echo "<p>Pagina $currentPage van $number_of_pages</p>"
+          echo "<p>Pagina $currentPageNumber van $number_of_pages</p>"
         @endphp
       </nav>
       @php

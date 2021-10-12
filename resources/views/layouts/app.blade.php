@@ -32,8 +32,8 @@
             @include('partials.latest-news')
         @endif
 
-        @if(get_post_type() == 'product')
-            <h1>Related products</h1>
+        @if(get_post_type() == 'product' && is_product())
+            @include('partials.related-products')
         @endif
 
         @include('partials.footer')

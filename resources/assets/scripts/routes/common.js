@@ -160,7 +160,7 @@ export default {
 
         //Code for Product Archive page
 
-        if(window.location.pathname.includes('/categorie/') || window.location.pathname.includes('/shop')) {
+        if(window.location.pathname.includes('/categorie/') || window.location.pathname === '/shop/' || window.location.pathname === '/shop') {
             const filterButton = document.querySelector('button.show-filter-options');
             const filterOptions = document.querySelector('section.product-archive-filter');
             const applyFilterButton = document.querySelector('button.apply-filter-button');
@@ -270,6 +270,48 @@ export default {
             applyFilterButton.addEventListener('click', applyFilters);
             filterButton.addEventListener('click', checkFilter);
 
+        }
+
+        //check for shop page
+        if (document.querySelector('section.product-page')) {
+            const mainImage = document.querySelector('div.product-image div.image.main-image img');
+            const imageGalleryItems = document.querySelectorAll('div.image-gallery ul li');
+
+            console.log(mainImage);
+
+            const changeSelectedImage = (e) => {
+                console.log(e);
+                document.querySelector('div.image-gallery ul li.selected').classList.remove('selected');
+                e.currentTarget.classList.add('selected');
+                console.log(e.currentTarget.querySelector('img').src);
+
+                mainImage.setAttribute('src', e.currentTarget.querySelector('img').src);
+            }
+
+            if (imageGalleryItems.length !== 0) {
+                imageGalleryItems[0].classList.add('selected');
+
+                for(let i=0; i<imageGalleryItems.length; i++) {
+                    console.log(imageGalleryItems[i]);
+                    imageGalleryItems[i].addEventListener('click', changeSelectedImage);
+                }
+            } else {
+                console.log('no image gallery');
+            }
+        }
+
+        if (window.location.pathname.includes('/cart')) {
+            document.querySelector('article.two-columns').classList.add('cart-page');
+            document.querySelector('article.two-columns').classList.remove('two-columns');
+            document.querySelector('article.cart-page div.article-image').remove();
+            document.querySelector('button[name="update_cart"]').remove();
+            document.querySelector('div.woocommerce-notices-wrapper').remove();
+        }
+
+        if (window.location.pathname.includes('/checkout')) {
+            document.querySelector('article.two-columns').classList.add('cart-page');
+            document.querySelector('article.two-columns').classList.remove('two-columns');
+            document.querySelector('article.cart-page div.article-image').remove();
         }
     },
     finalize() {

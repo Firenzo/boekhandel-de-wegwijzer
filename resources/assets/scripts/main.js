@@ -11,10 +11,10 @@ import home from './routes/home';
 import aboutUs from './routes/about';
 
 import {library, dom} from '@fortawesome/fontawesome-svg-core';
-import {faShoppingCart, faBook, faGift, faBible, faSearch, faMapMarkerAlt, faPhone, faEnvelope, faChevronRight, faBars, faChevronDown, faInfo, faNewspaper, faComment, faTimes, faEllipsisH, faFilter, faSlidersH } from '@fortawesome/free-solid-svg-icons';
+import {faShoppingCart, faBook, faGift, faBible, faSearch, faMapMarkerAlt, faPhone, faEnvelope, faChevronRight, faBars, faChevronDown, faInfo, faNewspaper, faComment, faTimes, faEllipsisH, faFilter, faSlidersH, faCheck } from '@fortawesome/free-solid-svg-icons';
 import {faFacebook, faInstagram} from '@fortawesome/free-brands-svg-icons';
 
-library.add(faShoppingCart, faBook, faGift, faBible, faSearch, faMapMarkerAlt, faPhone, faEnvelope, faFacebook, faInstagram, faChevronRight, faBars, faChevronDown, faInfo, faNewspaper, faComment, faTimes, faEllipsisH, faFilter, faSlidersH);
+library.add(faShoppingCart, faBook, faGift, faBible, faSearch, faMapMarkerAlt, faPhone, faEnvelope, faFacebook, faInstagram, faChevronRight, faBars, faChevronDown, faInfo, faNewspaper, faComment, faTimes, faEllipsisH, faFilter, faSlidersH, faCheck);
 dom.watch();
 
 /** Populate Router instance with DOM routes */
