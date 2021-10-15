@@ -268,7 +268,24 @@ header.secondary{
 	    		li.shopping-cart{
 	    			display:block;
 	    			list-style:none;
+	    			span.number-of-items{
+	    				display: flex;
+					    background: red;
+					    padding: 11px;
+					    height: 20px;
+					    width: 20px;
+					    border-radius: 100px;
+					    justify-content: center;
+					    align-items: center;
+					    position: absolute;
+					    top: -9px;
+					    right: -14px;
+					    font-size: 14px;
+					    font-weight:600;
+					    font-family: "Rubik", sans-serif;
+	    			}
 	    			a{
+	    				position: relative;
 	    				color:white;
 	    				display: flex;
 	    				justify-content: flex-end;

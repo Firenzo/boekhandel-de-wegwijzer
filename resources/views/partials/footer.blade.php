@@ -19,7 +19,7 @@
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porttitor ex orci, ut scelerisque lorem interdum sed. Integer vestibulum sed dui a sagittis. Etiam placerat rutrum nunc at suscipit. Donec cursus diam ac est molestie rhoncus.
                 </p>
-                <a href="#" class="button">Lees meer</a>
+                <a href="/over-ons" class="button">Lees meer</a>
             </div>
 
             <div class="main-footer-content-contact">

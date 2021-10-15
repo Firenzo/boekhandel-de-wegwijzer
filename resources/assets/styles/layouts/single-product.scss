@@ -9,6 +9,7 @@ section.product-page{
 	}
 
 	div.product-title-and-subtitle{
+		margin-bottom:16px;
 		h1{
 			margin-bottom:5px;
 		}
@@ -16,13 +17,14 @@ section.product-page{
 		p{
 			font-size:14px;
 			color:#bbb;
+			margin-bottom:0;
 		}
 	}
 
 	div.product-image{
 		width:100%;
 		position:inherit;
-		padding-bottom:130px;
+		padding-bottom:30px;
 		overflow-x: auto;
 
 		@include min-1024{

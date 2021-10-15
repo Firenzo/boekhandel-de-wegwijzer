@@ -1,3 +1,8 @@
+@php
+global $woocommerce;
+$items_in_cart = $woocommerce->cart->cart_contents_count;
+@endphp
+
 <header class="secondary">
 	<div class="container">
 		<button class="mobileMenuButton">
@@ -18,7 +23,16 @@
         		<li class="about"><a href="/over-ons">Over Ons</a></li>
         		<li class="news"><a href="/nieuws">Nieuws</a></li>
         		<li class="contact"><a href="/contact">Contact</a></li>
-        		<li class="shopping-cart"><a href="<?php echo wc_get_cart_url() ?>"><i class="fas fa-shopping-cart"></i></a></li>
+        		<li class="shopping-cart">
+        			<a href="<?php echo wc_get_cart_url() ?>">
+        				<i class="fas fa-shopping-cart"></i>
+        				@if($items_in_cart > 0)
+	        				<span class="number-of-items">
+	        					<?php echo $items_in_cart ?>
+	        				</span>
+        				@endif
+        			</a>
+        		</li>
         	</ul>
         </nav>
 

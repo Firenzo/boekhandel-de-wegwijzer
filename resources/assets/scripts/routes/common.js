@@ -304,7 +304,7 @@ export default {
             document.querySelector('article.two-columns').classList.add('cart-page');
             document.querySelector('article.two-columns').classList.remove('two-columns');
             document.querySelector('article.cart-page div.article-image').remove();
-            document.querySelector('button[name="update_cart"]').remove();
+            // document.querySelector('button[name="update_cart"]').remove();
             document.querySelector('div.woocommerce-notices-wrapper').remove();
         }
 

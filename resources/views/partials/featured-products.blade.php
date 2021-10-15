@@ -35,6 +35,7 @@
                     <div class="add-to-cart-button">
                         <a class="button" href="<?php $add_to_cart = do_shortcode('[add_to_cart_url id="'.$post->ID.'"]'); echo $add_to_cart; ?>" class="more"><i class="fas fa-shopping-cart"></i>
                         </a>
+                        <p></p>
                     </div>
                     
                 </div>

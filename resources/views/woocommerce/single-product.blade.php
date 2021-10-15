@@ -28,14 +28,27 @@ the readme will list any important changes.
       the_post();
       global $product;
       $attachment_ids = $product->get_gallery_image_ids();
+      $custom_product_data = get_fields();
+
       // do_action('woocommerce_shop_loop');
       // wc_get_template_part('content', 'single-product');
-
     @endphp
     <section class="product-page">
       <div class="product-title-and-subtitle">
         <h1>@title</h1>
-        <p>Auteur: Tonja Versluis-Markestein <span class="divider">|</span> ISBN: 9789087184889</p>
+        @if(get_field('auteur') || get_field('isbn'))
+          <p>
+            @hasfield('auteur')
+              Auteur: @field('auteur') 
+            @endfield
+            @if(get_field('auteur') && get_field('isbn'))
+              <span class="divider"> | </span>
+            @endif
+            @hasfield('isbn')
+              ISBN: @field('isbn')
+            @endfield
+          </p>
+        @endif
       </div>
 
       <div class="product-image">
@@ -69,32 +82,43 @@ the readme will list any important changes.
 
       <div class="additional-product-information">
         <h2>Meer informatie:</h2>
-        <ul>
-          <li>
-            <p class="information-title">ISBN:</p>
-            <p class="information">product info</p>
-          </li>
-          <li>
-            <p class="information-title">Auteur:</p>
-            <p class="information">Tonja Versluis-Markestein</p>
-          </li>
-          <li>
-            <p class="information-title">Uitgever:</p>
-            <p class="information">Uitgeverij De Banier</p>
-          </li>
-          <li>
-            <p class="information-title">Verschijningsdatum:</p>
-            <p class="information">Juni 2021</p>
-          </li>
-          <li>
-            <p class="information-title">Genre:</p>
-            <p class="information">Klassiek</p>
-          </li>
-          <li>
-            <p class="information-title">Taal:</p>
-            <p class="information">Nederlands</p>
-          </li>
-        </ul>
+        @if($custom_product_data)
+          <ul>
+            @php
+              if ($custom_product_data) {
+
+                foreach( $custom_product_data as $fieldTitle => $value ) {
+
+                  if (!empty($value)) {
+                    echo "<li>";
+
+                    if (is_array($value)) {
+                      $lastElement = end($value);
+                      echo "<p class='information-title'>" . ucfirst($fieldTitle) . "</p>";
+
+                      echo "<p class='information'>";
+                      foreach ($value as $listData => $listValue) {
+                        if ($listValue === $lastElement) {
+                          echo "$listValue";
+                        } else {
+                          echo "$listValue, ";
+                        }
+                      }
+                      echo "</p>";
+                    } else {
+                      echo "
+                        <p class='information-title'>". ucfirst($fieldTitle) . "</p>
+                        <p class='information'>$value</p>";
+                    }
+                    echo "</li>";
+                  }
+                }
+              }
+            @endphp
+          </ul>
+        @else
+          <p class="no-product-info-available">Er is momenteel geen extra informatie beschikbaar voor dit product.</p>
+        @endif
       </div>
     </section>
   @endwhile
